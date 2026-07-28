@@ -3,7 +3,7 @@ import MapKit
 
 /// Représente une fiche détaillée du Wiki.
 /// Elle est affichée lorsque l'utilisateur sélectionne un élément.
-struct Wiki: Identifiable {
+struct Wiki: Identifiable, PContent {
     let id = UUID()
     let title: String
     /// Petit texte affiché sous le nom.

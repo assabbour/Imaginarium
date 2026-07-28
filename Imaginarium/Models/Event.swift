@@ -1,7 +1,7 @@
 import Foundation
 
 /// Représente un événement créé par la communauté.
-struct CommunityEvent: Identifiable {
+struct Event: Identifiable {
     let id = UUID()
     let title: String
     let description: String

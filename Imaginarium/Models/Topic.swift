@@ -1,11 +1,11 @@
 import Foundation
 
 /// Représente une discussion créée dans l'espace communautaire.
-struct Discussion: Identifiable {
+struct Discussion: Identifiable, PContent {
     let id = UUID()
     /// Sujet de la discussion.
     let title: String
-    let author: String
+    var creator: User
     let message: String
     /// Image facultative associée à la publication.
     let imageName: String?
