@@ -3,9 +3,15 @@ import MapKit
 
 /// Représente une fiche détaillée du Wiki.
 /// Elle est affichée lorsque l'utilisateur sélectionne un élément.
+
+enum Category : CaseIterable {
+    case Films
+    case Series
+    case Livre
+    case Folklore
+}
+
 struct Wiki: Identifiable, PContent {
-    
-    
     let id = UUID()
     var title: String
     /// Petit texte affiché sous le nom.
@@ -15,6 +21,7 @@ struct Wiki: Identifiable, PContent {
     var description: String
     /// Images supplémentaires pour l'onglet média.
     let mediaImages: [URL]
+    var category : Category
     let created_at: Date
     let tags : [String]
     let location : CLLocation
