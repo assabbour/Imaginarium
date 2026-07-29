@@ -8,7 +8,6 @@
 import Foundation
 
 protocol PContent {
-    var id: UUID { get }
     var creator: User { get set }
     var description : String { get set }
     var created_at : Date { get }

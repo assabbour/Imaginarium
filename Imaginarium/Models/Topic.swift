@@ -1,7 +1,7 @@
 import Foundation
 
 /// Représente une discussion créée dans l'espace communautaire.
-struct Discussion: Identifiable, PContent {
+struct Discussion: Identifiable {
     let id = UUID()
     /// Sujet de la discussion.
     let title: String
