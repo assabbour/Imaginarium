@@ -6,11 +6,11 @@
 //
 
 import SwiftUI
-
+// to use for the background in our Views
 struct BackgroundGradient: View {
     var body: some View {
         LinearGradient(
-            colors: [Color("BackgroundDark"), Color("BackgroundLight")],
+            colors: [Color("backgroundDarkBlue"), Color("backgroundLightBlue")],
             startPoint: .top,
             endPoint: .bottom
         )
