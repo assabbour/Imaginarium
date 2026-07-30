@@ -11,6 +11,7 @@ struct ContentView: View {
     var body: some View {
         ZStack {
             BackgroundGradient()
+            //LALA
             VStack {
                 
                 Image(systemName: "globe")
