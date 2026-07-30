@@ -10,7 +10,7 @@ import SwiftUI
 struct BackgroundGradient: View {
     var body: some View {
         LinearGradient(
-            colors: [Color("backgroundDark"), Color("backgroundLight")],
+            colors: [Color("BackgroundDark"), Color("BackgroundLight")],
             startPoint: .top,
             endPoint: .bottom
         )
