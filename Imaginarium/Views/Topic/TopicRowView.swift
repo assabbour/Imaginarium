@@ -9,50 +9,54 @@ import SwiftUI
 
 struct TopicRowView: View {
     var topic : Topic
-        var body: some View {
+    var body: some View {
         VStack {
             VStack {
                 Text("\(topic.subject)")
                     .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(4)
-
+                    .font(.title)
+                Spacer()
                 Text("\(topic.title)")
                     .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(4)
-
+                    .fixedSize(horizontal: false, vertical: true)
+                
             }
+            .padding(.top,6)
+            .padding(.horizontal,6)
             .frame(minHeight: 100)
+            .foregroundStyle(.white)
+            
             
             AsyncImage(url: topic.image){ result in
                 if let image = result.image {
                     image
                         .resizable()
                         .scaledToFill()
+                        .allowsHitTesting(false)
+
                     
                 } else {
                     Image("placeholder")
                         .resizable()
                         .scaledToFill()
-                        
+                        .allowsHitTesting(false)
+
+                    
                 }
             }
-            .frame(minWidth: 200,maxWidth: 200,minHeight: 150, maxHeight: 150)
-            .clipShape(RoundedRectangle(cornerRadius: 8))
+            .frame(width:220,height: 130)
+            .clipped()
             
         }
-        .frame(maxWidth: 200, maxHeight: 250)
-        .background(.ultraThinMaterial)
+        .frame(maxWidth: 220, maxHeight: 230)
+        .background(Color.black.opacity(0.15))
         .clipShape(RoundedRectangle(cornerRadius: 8))
-        .padding()
-            
-        
-        
-        
+        .padding(4)
     }
 }
 
 #Preview {
     TopicRowView(topic: MockData.topics[0])
     TopicRowView(topic: MockData.topics[1])
-
+    
 }
