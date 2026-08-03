@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct HomeSegmentCreationWiki: View {
+struct HomeSegmentView: View {
     @Binding var datas : [Wiki]
     
     @State var image: String
@@ -45,5 +45,5 @@ struct HomeSegmentCreationWiki: View {
     }
 }
 #Preview {
-    HomeSegmentCreationWiki(datas: .constant(MockData.wikis),image: "imageProfil", title: "titre", location: "loc", description: "description", elements: ["lalal"])
+    HomeSegmentView(datas: .constant(MockData.wikis),image: "imageProfil", title: "titre", location: "loc", description: "description", elements: ["lalal"])
 }
