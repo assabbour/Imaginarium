@@ -18,7 +18,7 @@ struct GallerySegmentView: View {
             HStack{
 //                PhotosPicker(<#T##titleKey: LocalizedStringKey##LocalizedStringKey#>, selection: <#T##Binding<PhotosPickerItem?>#>)
             }
-//            .padding()
+            .padding()
             
         }
         

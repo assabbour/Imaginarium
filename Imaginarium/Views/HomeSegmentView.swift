@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct HomeSegmentCreationWiki: View {
+struct HomeSegmentView: View {
     @Binding var datas : [Wiki]
     
     @State var image: String
