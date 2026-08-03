@@ -8,21 +8,21 @@
 import SwiftUI
 
 struct TopicRowView: View {
-    var topic : Topic
+    var topic: Topic
     var body: some View {
         VStack {
             VStack {
                 Text("\(topic.subject)")
                     .frame(maxWidth: .infinity, alignment: .leading)
-                    .font(.title)
+                
                 Spacer()
-                Text("\(topic.title)")
+                
+                Text(topic.title)
+                    .font(.subheadline)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .fixedSize(horizontal: false, vertical: true)
-                
             }
-            .padding(.top,6)
-            .padding(.horizontal,6)
+            .padding(6)
             .frame(minHeight: 100)
             .foregroundStyle(.white)
             
@@ -40,13 +40,10 @@ struct TopicRowView: View {
                         .resizable()
                         .scaledToFill()
                         .allowsHitTesting(false)
-
-                    
                 }
             }
-            .frame(width:220,height: 130)
+            .frame(width: 220, height: 130)
             .clipped()
-            
         }
         .frame(maxWidth: 220, maxHeight: 230)
         .background(Color.black.opacity(0.15))
