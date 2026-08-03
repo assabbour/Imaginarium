@@ -6,11 +6,11 @@
 //
 
 import SwiftUI
-// to use for accent in components, like buttons
+
 struct AccentGradient: View {
     var body: some View {
         LinearGradient(
-            colors: [ Color("accentDark"), Color("accentExtraLight")],
+            colors: [ Color("AccentDark"), Color("accentExtraLight")],
             startPoint: .top,
             endPoint: .bottom
         )
