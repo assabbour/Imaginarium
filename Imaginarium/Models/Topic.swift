@@ -12,3 +12,5 @@ struct Discussion: Identifiable {
     /// Réponses des autres utilisateurs.
     let comments: [Comment]
 }
+
+
