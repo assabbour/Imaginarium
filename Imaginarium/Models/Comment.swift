@@ -6,5 +6,5 @@ struct Comment: Identifiable {
     let id = UUID()
     let creator: User
     let message: String
-    let created_at: Date
+    let createdAt: Date
 }

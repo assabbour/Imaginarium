@@ -16,9 +16,9 @@ enum PaysSelection :String, CaseIterable {
 }
 
 enum Role :CaseIterable {
-    case Admin
-    case Moderateur
-    case User
+    case admin
+    case moderateur
+    case user
 }
 
 struct User: Identifiable {
@@ -29,6 +29,6 @@ struct User: Identifiable {
     var profilPicture: URL
     var pays: PaysSelection // enum du pays du user
     var description: String
-    let created_at: Date
+    let createdAt: Date
     let role: Role // ATTENTION enum!!
 }
