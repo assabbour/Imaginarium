@@ -9,10 +9,10 @@ import Foundation
 
 enum PaysSelection :String, CaseIterable {
     var id: String { self.rawValue }
-    case France = "France"
-    case Angleterre = "Angleterre"
-    case Espagne = "Espagne"
-    case Ecosse = "Écosse"
+    case france = "France"
+    case angleterre = "Angleterre"
+    case espagne = "Espagne"
+    case ecosse = "Écosse"
 }
 
 enum Role :CaseIterable {

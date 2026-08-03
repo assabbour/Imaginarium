@@ -1,7 +1,7 @@
 import Foundation
 import MapKit
 
-/// Données statiques 
+/// Données statiques
 struct MockData {
 
     // =====================================================
@@ -16,8 +16,8 @@ struct MockData {
         profilPicture: URL(string: "https://i.pravatar.cc/300?img=11")!,
         pays: .France,
         description: "Passionné de jeux vidéo et de mondes fantastiques.",
-        created_at: Date(),
-        role: .User
+        createdAt: Date(),
+        role: .user
     )
 
     static let maya = User(
@@ -28,8 +28,8 @@ struct MockData {
         profilPicture: URL(string: "https://i.pravatar.cc/300?img=32")!,
         pays: .France,
         description: "Fan de cinéma, animation et univers imaginaires.",
-        created_at: Date(),
-        role: .User
+        createdAt: Date(),
+        role: .user
     )
 
     static let lucas = User(
@@ -40,8 +40,8 @@ struct MockData {
         profilPicture: URL(string: "https://i.pravatar.cc/300?img=12")!,
         pays: .Espagne,
         description: "Passionné de manga et de science-fiction.",
-        created_at: Date(),
-        role: .User
+        createdAt: Date(),
+        role: .user
     )
 
     static let sarah = User(
@@ -52,8 +52,8 @@ struct MockData {
         profilPicture: URL(string: "https://i.pravatar.cc/300?img=47")!,
         pays: .Angleterre,
         description: "Passionnée de fantasy et de folklore.",
-        created_at: Date(),
-        role: .Moderateur
+        createdAt: Date(),
+        role: .moderateur
     )
 
     static let thomas = User(
@@ -64,8 +64,8 @@ struct MockData {
         profilPicture: URL(string: "https://i.pravatar.cc/300?img=15")!,
         pays: .France,
         description: "Fan de science-fiction et de Star Wars.",
-        created_at: Date(),
-        role: .Admin
+        createdAt: Date(),
+        role: .admin
     )
 
     static let nina = User(
@@ -76,8 +76,8 @@ struct MockData {
         profilPicture: URL(string: "https://i.pravatar.cc/300?img=45")!,
         pays: .Ecosse,
         description: "Passionnée de fantasy et de jeux Nintendo.",
-        created_at: Date(),
-        role: .User
+        createdAt: Date(),
+        role: .user
     )
 
     static let users: [User] = [
@@ -107,8 +107,8 @@ struct MockData {
                 URL(string: "https://picsum.photos/600/400?random=12")!,
                 URL(string: "https://picsum.photos/600/400?random=13")!
             ],
-            category: .Films,
-            created_at: Date(),
+            category: .films,
+            createdAt: Date(),
             tags: [
                 "Pixar",
                 "Animation",
@@ -131,8 +131,8 @@ struct MockData {
                 URL(string: "https://picsum.photos/600/400?random=21")!,
                 URL(string: "https://picsum.photos/600/400?random=22")!
             ],
-            category: .Films,
-            created_at: Date(),
+            category: .films,
+            createdAt: Date(),
             tags: [
                 "Science-fiction",
                 "Espace",
@@ -155,8 +155,8 @@ struct MockData {
                 URL(string: "https://picsum.photos/600/400?random=31")!,
                 URL(string: "https://picsum.photos/600/400?random=32")!
             ],
-            category: .Livre,
-            created_at: Date(),
+            category: .livre,
+            createdAt: Date(),
             tags: [
                 "Magie",
                 "Fantasy",
@@ -179,8 +179,8 @@ struct MockData {
                 URL(string: "https://picsum.photos/600/400?random=41")!,
                 URL(string: "https://picsum.photos/600/400?random=42")!
             ],
-            category: .Folklore,
-            created_at: Date(),
+            category: .folklore,
+            createdAt: Date(),
             tags: [
                 "Dragon",
                 "Mythologie",
@@ -203,8 +203,8 @@ struct MockData {
                 URL(string: "https://picsum.photos/600/400?random=51")!,
                 URL(string: "https://picsum.photos/600/400?random=52")!
             ],
-            category: .Series,
-            created_at: Date(),
+            category: .series,
+            createdAt: Date(),
             tags: [
                 "Cyberpunk",
                 "Manga",
@@ -227,8 +227,8 @@ struct MockData {
                 URL(string: "https://picsum.photos/600/400?random=61")!,
                 URL(string: "https://picsum.photos/600/400?random=62")!
             ],
-            category: .Series,
-            created_at: Date(),
+            category: .series,
+            createdAt: Date(),
             tags: [
                 "Manga",
                 "Pirate",
@@ -256,12 +256,12 @@ struct MockData {
                 Comment(
                     creator: alex,
                     message: "Buzz sans hésiter.",
-                    created_at: Date()
+                    createdAt: Date()
                 ),
                 Comment(
                     creator: nina,
                     message: "Jessie pour moi.",
-                    created_at: Date()
+                    createdAt: Date()
                 )
             ]
         ),
@@ -275,12 +275,12 @@ struct MockData {
                 Comment(
                     creator: sarah,
                     message: "Naboo.",
-                    created_at: Date()
+                    createdAt: Date()
                 ),
                 Comment(
                     creator: lucas,
                     message: "Coruscant.",
-                    created_at: Date()
+                    createdAt: Date()
                 )
             ]
         ),
@@ -294,12 +294,12 @@ struct MockData {
                 Comment(
                     creator: maya,
                     message: "Le phénix !",
-                    created_at: Date()
+                    createdAt: Date()
                 ),
                 Comment(
                     creator: alex,
                     message: "Dragon évidemment.",
-                    created_at: Date()
+                    createdAt: Date()
                 )
             ]
         ),
@@ -313,7 +313,7 @@ struct MockData {
                 Comment(
                     creator: nina,
                     message: "Marineford.",
-                    created_at: Date()
+                    createdAt: Date()
                 )
             ]
         )
@@ -327,7 +327,7 @@ struct MockData {
 
         Event(
             creator: thomas,
-            created_at: Date(),
+            createdAt: Date(),
             title: "Soirée Star Wars",
             description:
                 "Rencontre communautaire autour des films et personnages de Star Wars.",
@@ -337,7 +337,7 @@ struct MockData {
 
         Event(
             creator: maya,
-            created_at: Date(),
+            createdAt: Date(),
             title: "Rencontre Pixar",
             description:
                 "Échange autour de Toy Story et des différents univers Pixar.",
@@ -347,7 +347,7 @@ struct MockData {
 
         Event(
             creator: sarah,
-            created_at: Date(),
+            createdAt: Date(),
             title: "Soirée folklore et légendes",
             description:
                 "Discussion sur les dragons et autres créatures mythologiques.",
@@ -357,7 +357,7 @@ struct MockData {
 
         Event(
             creator: lucas,
-            created_at: Date(),
+            createdAt: Date(),
             title: "Découverte manga",
             description:
                 "Rencontre dédiée à One Piece, Ghost in the Shell et aux univers japonais.",

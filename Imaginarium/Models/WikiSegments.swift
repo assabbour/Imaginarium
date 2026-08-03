@@ -13,7 +13,7 @@ enum WikiSegments: CaseIterable, Identifiable {
     case gallery
     case description
     case links
-/*Possibilité d'ecrire: case home, gallery, description, links*/
+/*Possibilité d'ecrire: "case home, gallery, description, links" car les ceses sont simples.*/
     
     var id: Self { self }
     
