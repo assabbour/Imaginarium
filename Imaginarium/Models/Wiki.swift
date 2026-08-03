@@ -27,10 +27,10 @@ struct Wiki: Identifiable, PContent {
     var location : CLLocation
     
     // Recup des segments pour le picker
-    var homeSegment: HomeSegment
-    var gallerySegment: GallerySegment
-    var descriptionSegment: DescriptionSegment
-    var linksSegment: LinksSegment
+//    var homeSegment: HomeSegment
+//    var gallerySegment: GallerySegment
+//    var descriptionSegment: DescriptionSegment
+//    var linksSegment: LinksSegment
 }
 
 

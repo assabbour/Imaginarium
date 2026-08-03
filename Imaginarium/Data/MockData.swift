@@ -14,7 +14,7 @@ struct MockData {
         pseudo: "Alex",
         password: "password",
         profilPicture: URL(string: "https://i.pravatar.cc/300?img=11")!,
-        pays: .France,
+        pays: .france,
         description: "Passionné de jeux vidéo et de mondes fantastiques.",
         createdAt: Date(),
         role: .user
@@ -26,7 +26,7 @@ struct MockData {
         pseudo: "Maya",
         password: "password",
         profilPicture: URL(string: "https://i.pravatar.cc/300?img=32")!,
-        pays: .France,
+        pays: .france,
         description: "Fan de cinéma, animation et univers imaginaires.",
         createdAt: Date(),
         role: .user
@@ -38,7 +38,7 @@ struct MockData {
         pseudo: "Lucas",
         password: "password",
         profilPicture: URL(string: "https://i.pravatar.cc/300?img=12")!,
-        pays: .Espagne,
+        pays: .espagne,
         description: "Passionné de manga et de science-fiction.",
         createdAt: Date(),
         role: .user
@@ -50,7 +50,7 @@ struct MockData {
         pseudo: "Sarah",
         password: "password",
         profilPicture: URL(string: "https://i.pravatar.cc/300?img=47")!,
-        pays: .Angleterre,
+        pays: .angleterre,
         description: "Passionnée de fantasy et de folklore.",
         createdAt: Date(),
         role: .moderateur
@@ -62,7 +62,7 @@ struct MockData {
         pseudo: "Thomas",
         password: "password",
         profilPicture: URL(string: "https://i.pravatar.cc/300?img=15")!,
-        pays: .France,
+        pays: .france,
         description: "Fan de science-fiction et de Star Wars.",
         createdAt: Date(),
         role: .admin
@@ -74,7 +74,7 @@ struct MockData {
         pseudo: "Nina",
         password: "password",
         profilPicture: URL(string: "https://i.pravatar.cc/300?img=45")!,
-        pays: .Ecosse,
+        pays: .ecosse,
         description: "Passionnée de fantasy et de jeux Nintendo.",
         createdAt: Date(),
         role: .user

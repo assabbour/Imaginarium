@@ -16,9 +16,9 @@ struct GallerySegmentView: View {
             BackgroundGradient()
                 .ignoresSafeArea()
             HStack{
-                PhotosPicker(<#T##titleKey: LocalizedStringKey##LocalizedStringKey#>, selection: <#T##Binding<PhotosPickerItem?>#>)
+//                PhotosPicker(<#T##titleKey: LocalizedStringKey##LocalizedStringKey#>, selection: <#T##Binding<PhotosPickerItem?>#>)
             }
-            .padding()
+//            .padding()
             
         }
         
