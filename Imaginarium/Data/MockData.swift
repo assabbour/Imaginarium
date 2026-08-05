@@ -245,13 +245,15 @@ struct MockData {
     // MARK: - DISCUSSIONS
     // =====================================================
 
-    static let discussions: [Discussion] = [
+    static let topics: [Topic] = [
 
-        Discussion(
+        Topic(
+            subject: "Toy Story",
             title: "Votre personnage préféré de Toy Story ?",
             creator: maya,
             message: "Je préfère Woody, mais Buzz reste incroyable.",
-            imageName: "toyStory",
+            category: .Trending,
+            image: URL(string: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2qj3yKgSmlFwjOC3VNBSzKpofVb43UitFcIDrKIZAlg&s=10"),
             comments: [
                 Comment(
                     creator: alex,
@@ -266,11 +268,13 @@ struct MockData {
             ]
         ),
 
-        Discussion(
+        Topic(
+            subject: "Toy Story",
             title: "Quelle planète Star Wars visiter ?",
             creator: thomas,
             message: "Si vous pouviez visiter une planète de Star Wars, laquelle choisiriez-vous ?",
-            imageName: "starWars",
+            category: .Favoris,
+            image: URL(string: "https://i.ytimg.com/vi/uBh8Sg8wOuA/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCgPil4po184W7q0_EpfJCs3GeAig"),
             comments: [
                 Comment(
                     creator: sarah,
@@ -285,11 +289,93 @@ struct MockData {
             ]
         ),
 
-        Discussion(
+        Topic(
+            subject: "Folklore",
             title: "Vos créatures fantastiques préférées ?",
             creator: sarah,
             message: "Dragon, phénix, licorne... laquelle préférez-vous ?",
-            imageName: "dragon",
+            category: .Favoris,
+            image: URL(string: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAeguHb0-8sN-ldntFlHWjuSDg2IJaD9T4CRtogd8z7w&s=10" ) ,
+            comments: [
+                Comment(
+                    creator: maya,
+                    message: "Le phénix !",
+                    createdAt: Date()
+                ),
+                Comment(
+                    creator: alex,
+                    message: "Dragon évidemment.",
+                    createdAt : Date()
+                )
+            ]
+        ),
+        Topic(
+            subject: "Folklore",
+            title: "Vos créatures fantastiques préférées ?",
+            creator: sarah,
+            message: "Dragon, phénix, licorne... laquelle préférez-vous ?",
+            category: .Favoris,
+            image: URL(string: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHIn6woW_c3SIS3ZbCzm7F4v9XCLUeMTIQZz1ZcNMB_g&s=10" ) ,
+            comments: [
+                Comment(
+                    creator: maya,
+                    message: "Le phénix !",
+                    createdAt: Date()
+                ),
+                Comment(
+                    creator: alex,
+                    message: "Dragon évidemment.",
+                    createdAt: Date()
+                )
+            ]
+        ),
+        Topic(
+            subject: "Folklore",
+            title: "Vos créatures fantastiques préférées ?",
+            creator: sarah,
+            message: "Dragon, phénix, licorne... laquelle préférez-vous ?",
+            category: .Trending,
+            image: URL(string: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVn8e_WKitHCTkGCSi8_WeqWFr8LlXZSAqEYSHcp_KQQ&s=10" ) ,
+            comments: [
+                Comment(
+                    creator: maya,
+                    message: "Le phénix !",
+                    createdAt: Date()
+                ),
+                Comment(
+                    creator: alex,
+                    message: "Dragon évidemment.",
+                    createdAt : Date()
+                )
+            ]
+        ),
+        Topic(
+            subject: "Folklore",
+            title: "Vos créatures fantastiques préférées ?",
+            creator: sarah,
+            message: "Dragon, phénix, licorne... laquelle préférez-vous ?",
+            category: .Trending,
+            image: URL(string: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2qj3yKgSmlFwjOC3VNBSzKpofVb43UitFcIDrKIZAlg&s=10" ) ,
+            comments: [
+                Comment(
+                    creator: maya,
+                    message: "Le phénix !",
+                    createdAt: Date()
+                ),
+                Comment(
+                    creator: alex,
+                    message: "Dragon évidemment.",
+                    createdAt: Date()
+                )
+            ]
+        ),
+        Topic(
+            subject: "Folklore",
+            title: "Vos créatures fantastiques préférées ?",
+            creator: sarah,
+            message: "Dragon, phénix, licorne... laquelle préférez-vous ?",
+            category: .Decouvrir,
+            image: URL(string: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2qj3yKgSmlFwjOC3VNBSzKpofVb43UitFcIDrKIZAlg&s=10" ) ,
             comments: [
                 Comment(
                     creator: maya,
@@ -304,11 +390,13 @@ struct MockData {
             ]
         ),
 
-        Discussion(
-            title: "One Piece : votre arc préféré ?",
+        Topic(
+            subject: "One Piece",
+            title: "Votre arc préféré ?",
             creator: lucas,
             message: "Quel est votre arc narratif préféré dans One Piece ?",
-            imageName: "onePiece",
+            category: .Decouvrir,
+            image: URL(string: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2qj3yKgSmlFwjOC3VNBSzKpofVb43UitFcIDrKIZAlg&s=10"),
             comments: [
                 Comment(
                     creator: nina,
@@ -376,7 +464,7 @@ struct MockData {
         wikis[2]
     ]
 
-    static let trendingWikis: [Wiki] = [
+    static let trendinngWikis: [Wiki] = [
         wikis[3],
         wikis[4],
         wikis[5]

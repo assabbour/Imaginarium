@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum PaysSelection :String, CaseIterable {
+enum PaysSelection :String,Hashable, CaseIterable {
     var id: String { self.rawValue }
     case france = "France"
     case angleterre = "Angleterre"
@@ -15,13 +15,13 @@ enum PaysSelection :String, CaseIterable {
     case ecosse = "Écosse"
 }
 
-enum Role :CaseIterable {
+enum Role :Hashable,CaseIterable {
     case admin
     case moderateur
     case user
 }
 
-struct User: Identifiable {
+struct User:Hashable, Identifiable {
     let id: UUID
     var email: String
     var pseudo: String
