@@ -6,14 +6,14 @@
 //
 import SwiftUI
 
-struct DividerTopic: View {
+struct RowDividerTopic: View {
     let color: Color = .white
     let width: CGFloat = 2
     var body: some View {
         Rectangle()
             .fill(color)
             .frame(height: width)
-            .edgesIgnoringSafeArea(.horizontal)
+            .glassEffect(.regular)
     }
 }
 

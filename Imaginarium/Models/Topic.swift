@@ -2,14 +2,14 @@ import Foundation
 
 /// Représente une discussion créée dans l'espace communautaire.
 
-enum TopicCategory : CaseIterable {
+enum TopicCategory :Hashable, CaseIterable {
     case Favoris
     case Trending
     case Decouvrir
 
 }
 
-struct Topic: Identifiable {
+struct Topic:Hashable, Identifiable {
     let id = UUID()
     /// Sujet de la discussion.
     var subject: String

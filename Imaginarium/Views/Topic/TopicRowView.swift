@@ -23,6 +23,7 @@ struct TopicRowView: View {
                     .fixedSize(horizontal: false, vertical: true)
             }
             .padding(6)
+            .padding(.top)
             .frame(minHeight: 100)
             .foregroundStyle(.white)
             
@@ -33,8 +34,6 @@ struct TopicRowView: View {
                         .resizable()
                         .scaledToFill()
                         .allowsHitTesting(false)
-
-                    
                 } else {
                     Image("placeholder")
                         .resizable()
@@ -46,6 +45,7 @@ struct TopicRowView: View {
             .clipped()
         }
         .frame(maxWidth: 220, maxHeight: 230)
+        // .glassEffect(in: .rect(cornerRadius: 16.0))
         .background(Color.black.opacity(0.15))
         .clipShape(RoundedRectangle(cornerRadius: 8))
         .padding(4)

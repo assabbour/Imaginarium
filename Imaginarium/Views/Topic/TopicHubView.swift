@@ -8,13 +8,24 @@
 import SwiftUI
 
 struct TopicHubView: View {
+    @State private var topicVM = TopicViewModel()
+    
+    @State var path: [Topic]  = []
     var body: some View {
-        ZStack {
-            BackgroundGradient()
-            VStack {
-                TopicCategoryView()
+        NavigationStack(path: $path) {
+            ZStack {
+                BackgroundGradient()
+                
+                VStack {
+                    TopicCategoryView(path: $path)
+                }
+            }
+            .navigationTitle("Communauté")
+            .navigationDestination(for: Topic.self) { selectedTopic in
+                TopicDetailedView(topic: selectedTopic)
             }
         }
+        .environment(topicVM)
     }
 }
 
