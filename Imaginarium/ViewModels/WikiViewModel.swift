@@ -12,7 +12,7 @@ import Foundation
 class WikiViewModel {
     
 // Propriétés Wiki
-    var wiki: Wiki = Wiki(creator: <#User#>) // preciser que le user devra etre fourni a la creation du wiki car pas optionnel dans le struct Wiki
+//    var wiki: Wiki = Wiki(creator: User) // preciser que le user devra etre fourni a la creation du wiki car pas optionnel dans le struct Wiki
     
     func validateWiki(wiki: Wiki) {
         

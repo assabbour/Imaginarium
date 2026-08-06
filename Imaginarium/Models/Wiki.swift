@@ -22,7 +22,7 @@ struct Wiki: Identifiable, PContent {
     /// Images supplémentaires pour l'onglet média.
     var mediaImages: [URL]? = []
     var category : Category? = nil
-    let createdAt: Date = Date()
+    let createdAt: Date
     var tags : [String] = []
     var location : CLLocation? = nil
     
