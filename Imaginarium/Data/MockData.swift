@@ -8,6 +8,7 @@ struct MockData {
     // MARK: - USERS
     // =====================================================
 
+    // User CONNECTÉ
     static let alex = User(
         id: UUID(),
         email: "alex@imaginarium.app",
@@ -19,7 +20,7 @@ struct MockData {
         createdAt: Date(),
         role: .user
     )
-
+    //-----------------------------------------------------
     static let maya = User(
         id: UUID(),
         email: "maya@imaginarium.app",
