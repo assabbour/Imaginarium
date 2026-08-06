@@ -12,7 +12,6 @@ struct HomeSegmentCreationWiki: View {
     
     @State var image: String
     @State var title: String
-    @State var location: String // mettre la location
     @State var description: String
     @State var elements: [String] // comment enregistrer des données
     
@@ -45,5 +44,5 @@ struct HomeSegmentCreationWiki: View {
     }
 }
 #Preview {
-    HomeSegmentCreationWiki(datas: .constant(MockData.wikis),image: "imageProfil", title: "titre", location: "loc", description: "description", elements: ["lalal"])
+//    HomeSegmentCreationWiki(datas: .constant(MockData.wikis),image: "imageProfil", title: "titre", location: "loc", description: "description", elements: ["lalal"])
 }

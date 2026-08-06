@@ -7,10 +7,12 @@
 
 import Foundation
 
+struct Element: Identifiable{
+    let id:UUID = UUID()
+    var elementName: String = ""
+    var description: String = ""
+}
+
 struct HomeSegment {
-    var image: String
-    var title: String
-    var location: String
-    var elements: [TextSection]
-    var description: String
+    var elements: [Element] = []
 }

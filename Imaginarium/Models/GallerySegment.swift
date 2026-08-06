@@ -8,10 +8,10 @@
 import Foundation
 
 struct ImageGallerySegment: Identifiable { // pour les identifier pour les supprimer grace a l'id
-    var id: UUID
-    var image: String
+    let id: UUID = UUID()
+    var image: String = ""
 }
 
 struct GallerySegment {
-    var gallery: [String]
+    var gallery: [ImageGallerySegment] = []
 }
