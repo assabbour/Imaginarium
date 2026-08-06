@@ -42,7 +42,10 @@ struct SearchBarView: View {
         // Fond sombre translucide
         .background(
             RoundedRectangle(cornerRadius: 20)
-                .fill(Color.white.opacity(0.08))
+            // filip -> glass effect instead of flat color
+//                .glassEffect(.regular)
+                .glassEffect(.regular.tint(.clear).interactive())
+//                .fill(Color.white.opacity(0.08))
         )
         
         // Contour fin translucide (style identique au design Figma)
