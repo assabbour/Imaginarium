@@ -27,22 +27,9 @@ struct TopicRowView: View {
             .frame(minHeight: 100)
             .foregroundStyle(.white)
             
-            
-            AsyncImage(url: topic.image){ result in
-                if let image = result.image {
-                    image
-                        .resizable()
-                        .scaledToFill()
-                        .allowsHitTesting(false)
-                } else {
-                    Image("placeholder")
-                        .resizable()
-                        .scaledToFill()
-                        .allowsHitTesting(false)
-                }
-            }
-            .frame(width: 220, height: 130)
-            .clipped()
+            TopicImageView(topic: topic)
+                .frame(width: 220, height: 130)
+                .clipped()
         }
         .frame(maxWidth: 220, maxHeight: 230)
         // .glassEffect(in: .rect(cornerRadius: 16.0))

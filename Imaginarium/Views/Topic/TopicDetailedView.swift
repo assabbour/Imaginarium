@@ -9,22 +9,24 @@ import SwiftUI
 
 struct TopicDetailedView: View {
     @Environment(TopicViewModel.self) var topicVM
-
     var topic : Topic
     var body: some View {
-        AsyncImage(url: topic.image){ result in
-            if let image = result.image {
-                image
-                    .resizable()
-                    .scaledToFill()
-                    .allowsHitTesting(false)
-            } else {
-                Image("placeholder")
-                    .resizable()
-                    .scaledToFill()
-                    .allowsHitTesting(false)
+        ZStack{
+            BackgroundGradient()
+            VStack{
+                TopicImageView(topic: topic)
+                    .frame(maxWidth: .infinity,maxHeight: 200)
+                    .clipped()
+                Text(topic.subject)
+                    .foregroundStyle(.white)
+                    .font(.title)
+                
+                VStack {
+                    
+                }
+                
             }
+            .padding()
         }
     }
 }
-
