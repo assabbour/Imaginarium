@@ -16,7 +16,6 @@ struct TopicCategoryView: View {
                                             path.append(topic)
                                         }
                                 }
-                                
                             }
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)

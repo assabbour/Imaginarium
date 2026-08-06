@@ -15,7 +15,6 @@ struct TopicHubView: View {
         NavigationStack(path: $path) {
             ZStack {
                 BackgroundGradient()
-                
                 VStack {
                     TopicCategoryView(path: $path)
                 }

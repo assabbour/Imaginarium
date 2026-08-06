@@ -10,7 +10,9 @@ import Foundation
 @Observable
 class TopicViewModel {
     
+    var copy = MockData.topics
+    
     func filterTopic(_ topicFiltered: TopicCategory) -> [Topic] {
-        return MockData.topics.filter{$0.category == topicFiltered}
+        return copy.filter{$0.category == topicFiltered}
     }
 }
