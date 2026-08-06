@@ -6,12 +6,14 @@
 //
 
 import SwiftUI
+import MapKit
 
 struct MapView: View {
     var body: some View {
         ZStack {
             BackgroundGradient()
             Text("MapView")
+            Map()
         }
     }
 }
