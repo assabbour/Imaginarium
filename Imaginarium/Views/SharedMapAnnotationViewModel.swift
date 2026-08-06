@@ -14,9 +14,9 @@ class SharedMapAnnotationViewModel {
     let wiki: Wiki
     let title: String
     let description: String
-    let annotationImg: URL
-    let mediaImgs: [URL]
-    let coordinates: CLLocation
+    let annotationImg: URL?
+    let mediaImgs: [URL]?
+    let coordinates: CLLocation?
     
     init(_ wiki: Wiki) {
         self.wiki = wiki

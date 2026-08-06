@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UIKit
 import MapKit
 
 struct MapView: View {
@@ -16,9 +17,28 @@ struct MapView: View {
     
     var body: some View {
         ZStack {
-            BackgroundGradient()
-            Text("MapView")
-            Map()
+            Map(
+                // map logic here
+            )
+            VStack {
+                HStack {
+                    Spacer()
+                    Button(action: {
+                        // Action du menu/filtre
+                    }) {
+                        Image(systemName: "line.3.horizontal.decrease")
+                            .font(.title2)
+                            .foregroundColor(.white)
+                    }
+                }
+                .padding(.bottom, 8)
+                .padding(.horizontal)
+                
+                SearchBarView(text: $searchText, placeholder: "Search")
+                    .padding(.horizontal)
+                Spacer()
+            }
+            
         }
     }
 }
