@@ -9,6 +9,8 @@ import SwiftUI
 import PhotosUI
 
 struct GallerySegmentView: View {
+    
+//    @Environment(WikiCreationViewModel.self) var wikiCreationViewModel
 //    @State var title: String
 //    @State var mediaImages:
     var body: some View {
@@ -18,7 +20,7 @@ struct GallerySegmentView: View {
             HStack{
 //                PhotosPicker(<#T##titleKey: LocalizedStringKey##LocalizedStringKey#>, selection: <#T##Binding<PhotosPickerItem?>#>)
             }
-//            .padding()
+            .padding()
             
         }
         

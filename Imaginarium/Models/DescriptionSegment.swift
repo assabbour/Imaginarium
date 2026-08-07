@@ -9,10 +9,10 @@ import Foundation
 
 struct TextSection: Identifiable { // gestion d'un bloc text
     let id: UUID = UUID()
-    var title:String = ""
-    var contents: String = ""
+    var title:String
+    var contents: String
 }
 
 struct DescriptionSegment {
-    var sections: [TextSection] = []
+    var sections: [TextSection]
 }

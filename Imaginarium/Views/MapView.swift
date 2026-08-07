@@ -10,10 +10,11 @@ import UIKit
 import MapKit
 
 struct MapView: View {
-    // to change later this list for a shared list in an environment
-    var MapList = MockData.wikis
     
-    @State private var searchText: String = ""
+    // Recuperattion des données du WikiViewModel
+    
+//    @Environment(WikiViewModel.self) var viewModel
+    
     
     var body: some View {
         ZStack {
