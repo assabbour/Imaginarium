@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MapAnnotationView: View {
     let wiki: Wiki
+    @Environment(SharedWikiViewModel.self) var wikiCreationViewModel
     var body: some View {
         ZStack(alignment: .center) {
             BackgroundGradient()

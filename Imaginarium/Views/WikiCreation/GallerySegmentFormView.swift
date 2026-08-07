@@ -10,7 +10,7 @@ import PhotosUI
 
 struct GallerySegmentFormView: View {
     
-//    @Environment(WikiCreationViewModel.self) var wikiCreationViewModel
+    @Environment(SharedWikiViewModel.self) var wikiCreationViewModel
 //    @State var title: String
 //    @State var mediaImages:
     var body: some View {
