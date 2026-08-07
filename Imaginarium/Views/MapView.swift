@@ -9,6 +9,12 @@ import SwiftUI
 import MapKit
 
 struct MapView: View {
+    
+    // Recuperattion des données du WikiViewModel
+    
+//    @Environment(WikiViewModel.self) var viewModel
+    
+    
     var body: some View {
         ZStack {
             BackgroundGradient()
