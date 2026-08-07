@@ -3,6 +3,10 @@ import SwiftUI
 /// Vue principale de l'onglet Wiki affichant la liste filtrable des fiches.
 struct WikiView: View {
     
+    // MARK: - Recuperattion des données du WikiViewModel
+    
+    @Environment(WikiViewModel.self) var viewModel
+    
     // MARK: - États
     
     /// Texte saisi dans la barre de recherche.

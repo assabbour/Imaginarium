@@ -7,11 +7,15 @@
 
 import SwiftUI
 
-struct HomeSegmentCreationWiki: View {
+struct HomeSegmentView: View {
+    
+//    @Environment(WikiCreationViewModel.self) var wikiCreationViewModel
+    
     @Binding var datas : [Wiki]
     
     @State var image: String
     @State var title: String
+    @State var location: String // mettre la location
     @State var description: String
     @State var elements: [String] // comment enregistrer des données
     
@@ -44,5 +48,5 @@ struct HomeSegmentCreationWiki: View {
     }
 }
 #Preview {
-//    HomeSegmentCreationWiki(datas: .constant(MockData.wikis),image: "imageProfil", title: "titre", location: "loc", description: "description", elements: ["lalal"])
+    HomeSegmentView(datas: .constant(MockData.wikis),image: "imageProfil", title: "titre", location: "loc", description: "description", elements: ["lalal"])
 }

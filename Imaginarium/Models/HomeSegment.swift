@@ -9,10 +9,10 @@ import Foundation
 
 struct Element: Identifiable{
     let id:UUID = UUID()
-    var elementName: String = ""
-    var description: String = ""
+    var elementName: String
+    var description: String
 }
 
 struct HomeSegment {
-    var elements: [Element] = []
+    var elements: [Element]
 }
