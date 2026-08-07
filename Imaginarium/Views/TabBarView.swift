@@ -9,6 +9,7 @@ import SwiftUI
 
 struct TabBarView: View {
     // put shared view model and add invironment at the bottom of tabview
+    @State var sharedViewModel = SharedWikiViewModel()
     
     var body: some View {
         TabView {
@@ -27,7 +28,7 @@ struct TabBarView: View {
                 TopicHubView()
             }
         }
-//        .environment(<#T##object: (Observable & AnyObject)?##(Observable & AnyObject)?#>)
+        .environment(sharedViewModel)
         .accentColor(.white)
     }
 }

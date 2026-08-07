@@ -5,7 +5,7 @@ struct WikiView: View {
     
     // MARK: - Recuperattion des données du WikiViewModel
     
-    @Environment(WikiViewModel.self) var viewModel
+    @Environment(SharedWikiViewModel.self) var viewModel
     
     // MARK: - États
     

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct LinksSegmentFormView: View {
     
-//    @Environment(WikiCreationViewModel.self) var wikiCreationViewModel
+    @Environment(SharedWikiViewModel.self) var wikiCreationViewModel
     
     @State var linkedImage: [String] // mettre info du wiki choisi
     @State var linkedWikiID: UUID

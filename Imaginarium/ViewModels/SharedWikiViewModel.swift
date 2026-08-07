@@ -8,7 +8,6 @@
 import Foundation
 
 @Observable
-
 class SharedWikiViewModel{
     
     // Copie du tableau de données de MockData.wikis et accessibilité pour les silos Wiki, MapView et Profil

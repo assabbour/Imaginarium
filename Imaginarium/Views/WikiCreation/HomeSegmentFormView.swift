@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HomeSegmentFormView: View {
     
-//    @Environment(WikiCreationViewModel.self) var wikiCreationViewModel
+    @Environment(SharedWikiViewModel.self) var wikiCreationViewModel
     
     @Binding var datas : [Wiki]
     

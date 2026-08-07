@@ -13,7 +13,7 @@ struct MapView: View {
     
     // Recuperattion des données du WikiViewModel
     
-//    @Environment(WikiViewModel.self) var viewModel
+    @Environment(SharedWikiViewModel.self) var viewModel
     @State private var searchText: String = ""
     
     var body: some View {

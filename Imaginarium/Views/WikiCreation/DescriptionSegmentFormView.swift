@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct DescriptionSegmentFormView: View {
-//    @Environment(WikiCreationViewModel.self) var wikiCreationViewModel
+    @Environment(SharedWikiViewModel.self) var wikiCreationViewModel
     var body: some View {
         ZStack{
             BackgroundGradient()
