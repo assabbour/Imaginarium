@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TabBarView: View {
-    // put shared viex model
+    // put shared view model and add invironment at the bottom of tabview
     
     var body: some View {
         TabView {
@@ -26,12 +26,9 @@ struct TabBarView: View {
             Tab("Profil", systemImage: "person") {
                 TopicHubView()
             }
-            
         }
-        
+//        .environment(<#T##object: (Observable & AnyObject)?##(Observable & AnyObject)?#>)
         .accentColor(.white)
-        
-        
     }
 }
 
