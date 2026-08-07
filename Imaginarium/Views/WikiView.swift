@@ -3,6 +3,10 @@ import SwiftUI
 /// Vue principale affichant la liste des Wikis avec une barre de recherche et un système de navigation.
 struct WikiView: View {
     
+    // MARK: - Recuperattion des données du WikiViewModel
+    
+    @Environment(WikiViewModel.self) var viewModel
+    
     // MARK: - États
     
     /// Texte saisi dans la barre de recherche.
