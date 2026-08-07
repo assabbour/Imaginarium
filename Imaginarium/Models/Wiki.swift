@@ -10,9 +10,9 @@ enum Category : CaseIterable {
     case livre
     case folklore
 }
- // A REVOIR: infos redondantes pour description
-struct Wiki: Identifiable, PContent {
-    let id: UUID = UUID()
+
+struct Wiki: Identifiable, PContent, Hashable {
+    let id = UUID()
     var title: String
     /// Petit texte affiché sous le nom.
     var subtitle: String

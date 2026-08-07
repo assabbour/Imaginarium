@@ -18,6 +18,7 @@ struct SearchBarView: View {
             // Icône de loupe à gauche
             Image(systemName: "magnifyingglass")
                 .foregroundColor(.white.opacity(0.7))
+
             
             // Champ de saisie de texte
             TextField(placeholder, text: $text)
