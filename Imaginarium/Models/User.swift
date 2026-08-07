@@ -21,7 +21,7 @@ enum Role :CaseIterable {
     case user
 }
 
-struct User: Identifiable {
+struct User: Identifiable, Hashable {
     let id: UUID
     var email: String
     var pseudo: String
