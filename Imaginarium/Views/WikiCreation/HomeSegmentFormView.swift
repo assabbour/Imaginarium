@@ -1,5 +1,5 @@
 //
-//  HomeSegmentCreationWiki.swift
+//  HomeSegmentFormView.swift
 //  Imaginarium
 //
 //  Created by Apprenant 72 on 30/07/2026.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct HomeSegmentView: View {
+struct HomeSegmentFormView: View {
     
 //    @Environment(WikiCreationViewModel.self) var wikiCreationViewModel
     
@@ -48,5 +48,5 @@ struct HomeSegmentView: View {
     }
 }
 #Preview {
-    HomeSegmentView(datas: .constant(MockData.wikis),image: "imageProfil", title: "titre", location: "loc", description: "description", elements: ["lalal"])
+    HomeSegmentFormView(datas: .constant(MockData.wikis),image: "imageProfil", title: "titre", location: "loc", description: "description", elements: ["lalal"])
 }

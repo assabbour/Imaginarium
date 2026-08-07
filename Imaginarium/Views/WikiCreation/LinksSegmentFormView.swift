@@ -1,5 +1,5 @@
 //
-//  LinksSegmentView.swift
+//  LinksSegmentFormView.swift
 //  Imaginarium
 //
 //  Created by Apprenant 72 on 03/08/2026.
@@ -7,7 +7,10 @@
 
 import SwiftUI
 
-struct LinksSegmentView: View {
+struct LinksSegmentFormView: View {
+    
+//    @Environment(WikiCreationViewModel.self) var wikiCreationViewModel
+    
     @State var linkedImage: [String] // mettre info du wiki choisi
     @State var linkedWikiID: UUID
     
@@ -24,5 +27,5 @@ struct LinksSegmentView: View {
 }
 
 #Preview {
-//    LinksSegmentView()
+//    LinksSegmentFormView()
 }

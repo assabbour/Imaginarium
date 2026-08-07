@@ -1,5 +1,5 @@
 //
-//  WikiCreationView.swift
+//  WikiCreationFormView.swift
 //  Imaginarium
 //
 //  Created by Apprenant 72 on 07/08/2026.
@@ -8,7 +8,7 @@
 import SwiftUI
 import UIKit
 
-struct WikiCreationView: View {
+struct WikiCreationFormView: View {
     @State var wikiCreationViewModel = WikiCreationViewModel()
     var body: some View {
         //picker
@@ -17,5 +17,5 @@ struct WikiCreationView: View {
 }
 
 #Preview {
-    WikiCreationView()
+    WikiCreationFormView()
 }

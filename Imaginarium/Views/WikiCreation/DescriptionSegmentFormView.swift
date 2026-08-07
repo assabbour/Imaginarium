@@ -1,5 +1,5 @@
 //
-//  DescriptionSegmentView.swift
+//  DescriptionSegmentFormView.swift
 //  Imaginarium
 //
 //  Created by Apprenant 72 on 03/08/2026.
@@ -7,7 +7,8 @@
 
 import SwiftUI
 
-struct DescriptionSegmentView: View {
+struct DescriptionSegmentFormView: View {
+//    @Environment(WikiCreationViewModel.self) var wikiCreationViewModel
     var body: some View {
         ZStack{
             BackgroundGradient()
@@ -17,5 +18,5 @@ struct DescriptionSegmentView: View {
 }
 
 #Preview {
-    DescriptionSegmentView()
+    DescriptionSegmentFormView()
 }
