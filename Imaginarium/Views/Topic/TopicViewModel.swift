@@ -15,4 +15,14 @@ class TopicViewModel {
     func filterTopic(_ topicFiltered: TopicCategory) -> [Topic] {
         return copy.filter{$0.category == topicFiltered}
     }
+    
+    func comments(_ topic: Topic) -> [Comment] {
+        for actualTopic in copy {
+            if actualTopic.id == topic.id {
+                return actualTopic.comments
+            }
+        }
+        return []
+    }
+        
 }

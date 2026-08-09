@@ -9,6 +9,7 @@ import SwiftUI
 
 struct TopicRowView: View {
     var topic: Topic
+    
     var body: some View {
         VStack {
             VStack {
