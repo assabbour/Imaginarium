@@ -19,7 +19,7 @@ struct MapView: View {
     @State var passWikiToSheet: Wiki = MockData.wikis[0] // default data, we never see it
     
     var body: some View {
-        NavigationStack() {
+//        NavigationStack() {
             ZStack {
                 Map(position: .constant(.automatic)) {
                     ForEach(viewModel.filterWikis(searchText)) { item in
@@ -44,7 +44,7 @@ struct MapView: View {
                     Spacer()
                 }
             }
-        }
+//        }
         .sheet(isPresented: $isSheetPresented, content: {
             MapSheetView(wiki: passWikiToSheet)
             .presentationDetents([.medium])

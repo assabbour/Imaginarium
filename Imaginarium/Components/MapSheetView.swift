@@ -16,7 +16,7 @@ struct MapSheetView: View {
                 .padding()
             ScrollView(.horizontal) {
                     HStack {
-                        ForEach(wiki.mediaImages, id:\.self) { image in
+                        ForEach(wiki.gallerySegment?.gallery ?? [], id:\.self) { image in
                             AsyncImage(url: wiki.imageName) { image in
                                 image.resizable()
                             }

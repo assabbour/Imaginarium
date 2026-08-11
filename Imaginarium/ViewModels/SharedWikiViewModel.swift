@@ -24,8 +24,8 @@ class SharedWikiViewModel{
                 wiki.tags.contains(where: { $0.localizedCaseInsensitiveContains(searchText) })
             }
         }
+    }
     // fonction d'ajout d'un wiki
-    
     func addWiki(wiki: Wiki) {
         wikis.append(wiki)
     }
