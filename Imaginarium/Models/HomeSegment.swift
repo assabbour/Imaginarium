@@ -7,12 +7,12 @@
 
 import Foundation
 
-struct Element: Identifiable{
+struct Element: Identifiable, Hashable {
     let id:UUID = UUID()
     var elementName: String
     var description: String
 }
 
-struct HomeSegment {
+struct HomeSegment: Hashable {
     var elements: [Element]
 }

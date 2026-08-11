@@ -9,44 +9,53 @@ import SwiftUI
 
 struct HomeSegmentFormView: View {
     
-    @Environment(SharedWikiViewModel.self) var wikiCreationViewModel
+    @Environment(WikiCreationViewModel.self) var wikiCreationViewModel
     
-    @Binding var datas : [Wiki]
-    
-    @State var image: String
-    @State var title: String
-    @State var location: String // mettre la location
-    @State var description: String
-    @State var elements: [String] // comment enregistrer des données
+    @State private var newElementName: String = ""
+    @State private var newElementDescription: String = ""
     
     var body: some View {
+        @Bindable var viewModel = wikiCreationViewModel // il faut que la vue soit créée pour que le binding fonctionne d'ou l'importance de le placer DANS le body
         
-        ZStack{
+        ZStack {
             BackgroundGradient() /*applique la couleur sur toute la zstack et lui donne une taille*/
                 .ignoresSafeArea() /* Applique le safeArea UNIQUEMENT sur le background et pas a toute la view donc cool*/
+            
             Form {
-                VStack{
-                    //                        Text($image)
-                    HStack{
-                        TextField("Ajouter une image", text: $image)
-                        //                        Button
-                    VStack{
-                        TextField("Titre", text: $title)
-                            //                        Map{location}
-                    }
-                    }
-                    //                TextField("nom element", text: $elements)
+                Section("Nouvel élément") {
+                    TextField("Nom", text: $newElementName)
+                    TextField("Description", text: $newElementDescription, axis: .vertical)
+                        .lineLimit(2...4)
                     
-                    //                Button{} ajouter des elements
-                    
-                    TextField("Description", text: $description) // description
+                    Button("Ajouter") {
+                        wikiCreationViewModel.addHomeElement(name: newElementName, description: newElementDescription)
+                        newElementName = ""
+                        newElementDescription = ""
+                    }
+                    .disabled(newElementName.trimmingCharacters(in: .whitespaces).isEmpty ||
+                              newElementDescription.trimmingCharacters(in: .whitespaces).isEmpty)
                 }
                 
-                // import des btn valider et supprimer
-            }.scrollContentBackground(.hidden)
+                Section("Éléments ajoutés") {
+                    ForEach(viewModel.wiki.homeSegment.elements) { element in
+                        VStack(alignment: .leading) {
+                            Text(element.elementName).fontWeight(.semibold)
+                            Text(element.description)
+                                .font(.caption) //gestion native IOS de la taille de police
+                                .foregroundColor(.secondary) // gestion native IOS de la couleur de police
+                        }
+                    }
+                    .onDelete { indexSet in // trouver pour supprimer par swipe, natif IOS
+                        viewModel.wiki.homeSegment.elements.remove(atOffsets: indexSet)
+                    }
+                }
+            }
+            .scrollContentBackground(.hidden) // rend invisble le bg par defaut du form
         }
     }
 }
+
 #Preview {
-    HomeSegmentFormView(datas: .constant(MockData.wikis),image: "imageProfil", title: "titre", location: "loc", description: "description", elements: ["lalal"])
+    HomeSegmentFormView()
+        .environment(WikiCreationViewModel())
 }

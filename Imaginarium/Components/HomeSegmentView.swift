@@ -9,8 +9,15 @@ struct HomeSegmentView: View {
                 .font(.headline)
                 .foregroundColor(.white)
             
-            Text(wiki.subtitle)
-                .foregroundColor(.white.opacity(0.85))
+            // Pour remplacer wiki.subtitle
+            ForEach(wiki.homeSegment.elements) { element in
+                HStack (spacing: 8) {
+                    Text(element.elementName)
+                    Text(element.description)
+                }
+            }
+//            Text(wiki.subtitle)
+//                .foregroundColor(.white.opacity(0.85))
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding(20)
