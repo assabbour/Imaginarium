@@ -16,13 +16,12 @@ struct WikiCreationFormView: View {
     @State private var newTag: String = ""
     
     var body: some View {
-        @Bindable var viewModel = wikiCreationViewModel
+        @Bindable var viewModel = wikiCreationViewModel // peut se remplacer par .OnAppear
         
         ZStack {
             BackgroundGradient()
                 .ignoresSafeArea()
             
-            ScrollView {
                 VStack(spacing: 16) {
                     
                     VStack(spacing: 12) {
@@ -96,7 +95,6 @@ struct WikiCreationFormView: View {
                     
                     Spacer()
                 }
-            }
         }
         .environment(wikiCreationViewModel)
     }
