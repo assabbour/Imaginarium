@@ -13,7 +13,7 @@ struct TabBarView: View {
     
     var body: some View {
         TabView {
-            Tab("Imaginopedia", systemImage: "book.fill") {
+            Tab("Imaginarium", systemImage: "book.fill") {
                 WikiView()
             }
             

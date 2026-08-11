@@ -10,51 +10,46 @@ import UIKit
 import MapKit
 
 struct MapView: View {
-    
-    // Recuperattion des données du WikiViewModel
-    
+   
     @Environment(SharedWikiViewModel.self) var viewModel
+    
     @State private var searchText: String = ""
-    var selectedType = "Tous"
+    @State var categoryType = Category.any
+    @State var isSheetPresented: Bool = false
+    @State var passWikiToSheet: Wiki = MockData.wikis[0] // default data, we never see it
+    
     var body: some View {
-        NavigationStack {
+        NavigationStack() {
             ZStack {
                 Map(position: .constant(.automatic)) {
-                    ForEach(viewModel.wikis) { item in
-                        if selectedType == "Tous" {
+                    ForEach(viewModel.filterWikis(searchText)) { item in
+                        if categoryType == categoryType {
                             Annotation(item.title, coordinate: item.location.coordinate, anchor: .center) {
                                 Button {
-                                    //                                selectedCard = item
-                                    //                                isPresented.toggle()
-                                    
+                                    passWikiToSheet = item
+                                    isSheetPresented.toggle()
                                 } label : {
                                     MapAnnotationView(wiki: item)
                                 }
                             }
+                            .annotationTitles(.hidden)
                         }
                     }
-//                    VStack {
-//                        HStack {
-//                            Spacer()
-//                            Button(action: {
-//                                // Action du menu/filtre
-//                            }) {
-//                                Image(systemName: "line.3.horizontal.decrease")
-//                                    .font(.title2)
-//                                    .foregroundColor(.white)
-//                            }
-//                        }
-//                        .padding(.bottom, 8)
-//                        .padding(.horizontal)
-//                        
-//                        SearchBarView(text: $searchText, placeholder: "Search")
-//                            .padding(.horizontal)
-//                        Spacer()
-//                    }
-                    
+                }
+                .colorScheme(.dark)
+                // toolbar
+                VStack {
+                    CategoryFilterButtonView(categoryType: $categoryType)
+                    UIKitSearchBarView(text: $searchText)
+                    Spacer()
                 }
             }
         }
+        .sheet(isPresented: $isSheetPresented, content: {
+            MapSheetView(wiki: passWikiToSheet)
+            .presentationDetents([.medium])
+//            .presentationBackground(.accentDark)
+        })
     }
 }
 #Preview {

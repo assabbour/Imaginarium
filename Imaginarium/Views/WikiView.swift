@@ -15,21 +15,6 @@ struct WikiView: View {
     /// Le chemin de navigation (NavigationPath) pour gérer la pile d'écrans.
     @State private var navigationPath = NavigationPath()
     
-    // MARK: - Propriétés calculées
-    
-    /// Liste des wikis filtrés dynamiquement selon le texte de recherche (titre, sous-titre ou tags).
-    var filteredWikis: [Wiki] {
-        if searchText.isEmpty {
-            return MockData.wikis
-        } else {
-            return MockData.wikis.filter { wiki in
-                wiki.title.localizedCaseInsensitiveContains(searchText) ||
-                wiki.subtitle.localizedCaseInsensitiveContains(searchText) ||
-                wiki.tags.contains(where: { $0.localizedCaseInsensitiveContains(searchText) })
-            }
-        }
-    }
-    
     // MARK: - Corps de la vue
     
     var body: some View {
@@ -44,7 +29,7 @@ struct WikiView: View {
                     
                     // MARK: - En-tête (Header)
                     HStack {
-                        Text("Wiki Name")
+                        Text("Imaginarium")
                             .font(.system(size: 28, weight: .bold))
                             .foregroundColor(.white)
                         
@@ -68,7 +53,7 @@ struct WikiView: View {
                     // MARK: - Liste des cartes Wiki
                     ScrollView(showsIndicators: false) {
                         LazyVStack(spacing: 18) {
-                            ForEach(filteredWikis) { wiki in
+                            ForEach(viewModel.filterWikis(searchText)) { wiki in
                                 Button(action: {
                                     // Ajout de l'élément au chemin pour naviguer vers le détail
                                     navigationPath.append(wiki)

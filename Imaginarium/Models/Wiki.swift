@@ -9,6 +9,7 @@ enum Category : CaseIterable {
     case series
     case livre
     case folklore
+    case any
 }
 
 struct Wiki: Identifiable, PContent, Hashable {
