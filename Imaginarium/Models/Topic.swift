@@ -13,14 +13,14 @@ struct Topic:Hashable, Identifiable {
     let id = UUID()
     /// Sujet de la discussion.
     var subject: String
-    let title: String
+    var title: String
     var creator: User
-    let message: String?
+    var message: String?
     var category : TopicCategory
     /// Image facultative associée à la publication.
-    let image: URL?
+    var image: URL?
     /// Réponses des autres utilisateurs.
-    let comments: [Comment]
+    var comments: [Comment]
 }
 
 
