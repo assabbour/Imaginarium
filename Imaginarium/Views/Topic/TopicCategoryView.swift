@@ -6,6 +6,8 @@ struct TopicCategoryView: View {
     var body: some View {
         VStack {
             ScrollView {
+                ComponentTitle(title: "Communauté")
+
                 ForEach(TopicCategory.allCases, id: \.self) { topicFiltered in
                     TopicCategoyTitleView(topicFiltered: topicFiltered)
                     ScrollView(.horizontal) {

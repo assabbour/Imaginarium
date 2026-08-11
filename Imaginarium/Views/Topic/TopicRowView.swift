@@ -9,6 +9,7 @@ import SwiftUI
 
 struct TopicRowView: View {
     var topic: Topic
+    
     var body: some View {
         VStack {
             VStack {
@@ -37,10 +38,4 @@ struct TopicRowView: View {
         .clipShape(RoundedRectangle(cornerRadius: 8))
         .padding(4)
     }
-}
-
-#Preview {
-    TopicRowView(topic: MockData.topics[0])
-    TopicRowView(topic: MockData.topics[1])
-    
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum WikiSegments: CaseIterable, Identifiable { //caseiterable permet de gerer et de generer une liste de tout les cas de l'enum et son affichage dynamique
+enum WikiSegments: CaseIterable, Identifiable, Hashable { //caseiterable permet de gerer et de generer une liste de tout les cas de l'enum et son affichage dynamique
     
     case home
     case gallery

@@ -16,4 +16,3 @@ struct RowDividerTopic: View {
             .glassEffect(.regular)
     }
 }
-

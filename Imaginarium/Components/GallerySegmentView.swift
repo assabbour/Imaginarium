@@ -11,8 +11,8 @@ struct GallerySegmentView: View {
             
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 12) {
-                    ForEach(wiki.mediaImages, id: \.self) { imageUrl in
-                        AsyncImage(url: imageUrl) { image in
+                    ForEach(wiki.gallerySegment?.gallery ?? [], id: \.self) { imageUrl in
+                        AsyncImage(url: URL(string: imageUrl.image)) { image in
                             image.resizable().scaledToFill()
                         } placeholder: {
                             ProgressView().tint(.white)
@@ -27,3 +27,4 @@ struct GallerySegmentView: View {
         .background(RoundedRectangle(cornerRadius: 20).fill(Color.white.opacity(0.08)))
     }
 }
+

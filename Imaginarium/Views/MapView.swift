@@ -54,4 +54,5 @@ struct MapView: View {
 }
 #Preview {
     MapView()
+        .environment(SharedWikiViewModel())
 }

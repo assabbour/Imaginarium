@@ -6,5 +6,5 @@ class WikiDetailViewModel {
     var selectedTab: String = "Home"
     
     /// Les 5 onglets basés sur tes fichiers de segments
-    let tabs = ["Home", "Desc", "Gallery", "Links"]
+    let tabs = ["Home", "Description", "Gallery", "Links"]
 }

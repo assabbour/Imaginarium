@@ -81,4 +81,5 @@ struct WikiView: View {
 // Aperçu Xcode
 #Preview {
     WikiView()
+        .environment(SharedWikiViewModel())
 }
