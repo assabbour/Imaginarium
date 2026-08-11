@@ -9,8 +9,8 @@ import SwiftUI
 
 struct TopicHubView: View {
     @State private var topicVM = TopicViewModel()
-    
-    @State var path: [Topic]  = []
+    @State var path: [Topic] = []
+
     var body: some View {
         NavigationStack(path: $path) {
             ZStack {
@@ -19,7 +19,6 @@ struct TopicHubView: View {
                     TopicCategoryView(path: $path)
                 }
             }
-            .navigationTitle("Communauté")
             .navigationDestination(for: Topic.self) { selectedTopic in
                 TopicDetailedView(topic: selectedTopic)
             }

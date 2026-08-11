@@ -15,7 +15,7 @@ struct TopicCategoyTitleView: View {
                 .foregroundStyle(.white)
                 .font(.title)
                 .frame(maxWidth: .infinity,alignment: .leading)
-            DividerTopic()
+            TitleDividerTopic()
                 .frame(width: 200)
                 .frame(maxWidth: .infinity, alignment: .leading)
         }

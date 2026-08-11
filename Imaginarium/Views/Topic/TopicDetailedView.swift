@@ -13,20 +13,32 @@ struct TopicDetailedView: View {
     var body: some View {
         ZStack{
             BackgroundGradient()
-            VStack{
-                TopicImageView(topic: topic)
-                    .frame(maxWidth: .infinity,maxHeight: 200)
-                    .clipped()
-                Text(topic.subject)
-                    .foregroundStyle(.white)
-                    .font(.title)
-                
-                VStack {
+            ScrollView {
+                VStack{
+                    TopicImageView(topic: topic)
+                        .frame(maxWidth: .infinity,maxHeight: 200)
+                        .clipped()
+                        .clipShape(
+                            RoundedRectangle(cornerRadius: 8)
+                        )
+                        .padding(.vertical)
+                        
+                    Text(topic.subject)
+                        .foregroundStyle(.white)
+                        .font(.title)
+    
+                    TopicDetailedHeaderRowView(topic: topic)
+                        .padding(6)
+                        .background(Color.black.opacity(0.15))
+                        .clipShape(RoundedRectangle(cornerRadius: 8))
                     
+                    RowDividerTopic()
+                        .padding(.vertical)
+                    
+                    TopicDetailedCommentView(topic: topic)
                 }
-                
+                .padding()
             }
-            .padding()
         }
     }
 }

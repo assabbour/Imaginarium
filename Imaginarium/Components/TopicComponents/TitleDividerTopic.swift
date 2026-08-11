@@ -6,7 +6,7 @@
 //
 import SwiftUI
 
-struct DividerTopic: View {
+struct TitleDividerTopic: View {
     let color: Color = .white
     let width: CGFloat = 1
     var body: some View {
