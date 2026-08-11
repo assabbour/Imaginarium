@@ -4,7 +4,7 @@ import MapKit
 /// Représente une fiche détaillée du Wiki.
 /// Elle est affichée lorsque l'utilisateur sélectionne un élément.
 
-enum Category : CaseIterable {
+enum Category : CaseIterable, Hashable {
     case films
     case series
     case livre
@@ -21,17 +21,16 @@ struct Wiki: Identifiable, PContent, Hashable {
     var description: String
     /// Images supplémentaires pour l'onglet média.
 
-    var mediaImages: [URL]
     var category : Category
     let createdAt: Date
     var tags : [String]
     var location : CLLocation
     
-    // Recup des segments pour le picker
-//    var homeSegment: HomeSegment
-//    var gallerySegment: GallerySegment
-//    var descriptionSegment: DescriptionSegment
-//    var linksSegment: LinksSegment
+    // Recup des segments pour le picker, avec des valeurs nil (default) car pas obligatoire pour créer un wiki
+    var homeSegment: HomeSegment = HomeSegment(elements: [])
+    var gallerySegment: GallerySegment? = nil
+    var descriptionSegment: DescriptionSegment? = nil
+    var linksSegment: LinksSegment? = nil
 }
 
 

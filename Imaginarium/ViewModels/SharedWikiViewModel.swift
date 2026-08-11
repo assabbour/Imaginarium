@@ -14,5 +14,9 @@ class SharedWikiViewModel{
     var wikis: [Wiki] = MockData.wikis
     
     // ajouter func filtre
+    // fonction d'ajout d'un wiki
     
+    func addWiki(wiki: Wiki) {
+        wikis.append(wiki)
+    }
 }

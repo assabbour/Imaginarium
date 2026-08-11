@@ -9,23 +9,57 @@ import SwiftUI
 
 struct LinksSegmentFormView: View {
     
-    @Environment(SharedWikiViewModel.self) var wikiCreationViewModel
+    @Environment(WikiCreationViewModel.self) var wikiCreationViewModel
+    @Environment(SharedWikiViewModel.self) var sharedViewModel
     
-    @State var linkedImage: [String] // mettre info du wiki choisi
-    @State var linkedWikiID: UUID
+    @State private var searchText: String = ""
+    
+    var filteredWikis: [Wiki] {
+        guard !searchText.isEmpty else { return [] }
+        let existingLinks = wikiCreationViewModel.wiki.linksSegment?.links ?? []
+        return sharedViewModel.wikis.filter { wiki in
+            wiki.title.localizedCaseInsensitiveContains(searchText) &&
+            !existingLinks.contains(where: { $0.linkedWikiID == wiki.id })
+        }
+    }
     
     var body: some View {
-        ZStack{
+        @Bindable var viewModel = wikiCreationViewModel
+        
+        ZStack {
             BackgroundGradient()
                 .ignoresSafeArea()
-            //Ajouter le picker pour qu'il soit fix pdt le scroll
-            ScrollView{
             
+            Form {
+                Section("Rechercher un wiki") {
+                    SearchBarView(text: $searchText, placeholder: "Nom du wiki")
+                    
+                    ForEach(filteredWikis) { wiki in
+                        Button {
+                            wikiCreationViewModel.addLink(to: wiki)
+                            searchText = ""
+                        } label: {
+                            Text(wiki.title)
+                        }
+                    }
+                }
+                
+                Section("Liens ajoutés") {
+                    ForEach(viewModel.wiki.linksSegment?.links ?? []) { link in
+                        Text(link.linkedTitle)
+                    }
+                    .onDelete { indexSet in
+                        viewModel.wiki.linksSegment?.links.remove(atOffsets: indexSet)
+                    }
+                }
             }
+            .scrollContentBackground(.hidden)
         }
     }
 }
 
 #Preview {
-//    LinksSegmentFormView()
+    LinksSegmentFormView()
+        .environment(WikiCreationViewModel())
+        .environment(SharedWikiViewModel())
 }

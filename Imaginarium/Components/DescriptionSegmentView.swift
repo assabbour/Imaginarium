@@ -9,8 +9,13 @@ struct DescriptionSegmentView: View {
                 .font(.headline)
                 .foregroundColor(.white)
             
-            Text(wiki.description)
-                .foregroundColor(.white.opacity(0.85))
+            // code de remplacement pour recup le bon mockdata
+            ForEach(wiki.descriptionSegment?.sections ?? []) { section in
+                Text(section.title)
+                Text(section.contents)
+            }
+//            Text(wiki.description)
+//                .foregroundColor(.white.opacity(0.85))
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding(20)

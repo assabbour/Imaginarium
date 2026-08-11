@@ -96,151 +96,169 @@ struct MockData {
 
     static let wikis: [Wiki] = [
 
-        Wiki(
-            title: "Toy Story",
-            subtitle: "Univers Pixar",
-            creator: maya,
-            imageName: URL(string: "https://picsum.photos/600/400?random=10")!,
-            description:
-                "Toy Story raconte les aventures de jouets qui prennent vie lorsque les humains ne les regardent pas.",
-            mediaImages: [
-                URL(string: "https://picsum.photos/600/400?random=11")!,
-                URL(string: "https://picsum.photos/600/400?random=12")!,
-                URL(string: "https://picsum.photos/600/400?random=13")!
-            ],
-            category: .films,
-            createdAt: Date(),
-            tags: [
-                "Pixar",
-                "Animation",
-                "Aventure"
-            ],
-            location: CLLocation(
-                latitude: 37.8324,
-                longitude: -122.2851
-            )
-        ),
+            Wiki(
+                title: "Toy Story",
+                subtitle: "Univers Pixar",
+                creator: maya,
+                imageName: URL(string: "https://picsum.photos/600/400?random=10")!,
+                description: "Toy Story raconte les aventures de jouets qui prennent vie lorsque les humains ne les regardent pas.",
+                category: .films,
+                createdAt: Date(),
+                tags: ["Pixar", "Animation", "Aventure"],
+                location: CLLocation(latitude: 37.8324, longitude: -122.2851),
+                homeSegment: HomeSegment(elements: [
+                    Element(elementName: "Studio", description: "Pixar Animation Studios"),
+                    Element(elementName: "Année de sortie", description: "1995")
+                ]),
+                gallerySegment: GallerySegment(gallery: [
+                    ImageGallerySegment(image: "https://picsum.photos/600/400?random=11"),
+                    ImageGallerySegment(image: "https://picsum.photos/600/400?random=12"),
+                    ImageGallerySegment(image: "https://picsum.photos/600/400?random=13")
+                ]),
+                descriptionSegment: DescriptionSegment(sections: [
+                    TextSection(
+                        title: "Résumé",
+                        contents: "Toy Story raconte les aventures de jouets qui prennent vie lorsque les humains ne les regardent pas."
+                    )
+                ]),
+                linksSegment: LinksSegment(links: [])
+            ),
 
-        Wiki(
-            title: "Star Wars",
-            subtitle: "Une galaxie lointaine",
-            creator: thomas,
-            imageName: URL(string: "https://picsum.photos/600/400?random=20")!,
-            description:
-                "Star Wars présente une galaxie peuplée de nombreuses civilisations, Jedi, Sith et créatures.",
-            mediaImages: [
-                URL(string: "https://picsum.photos/600/400?random=21")!,
-                URL(string: "https://picsum.photos/600/400?random=22")!
-            ],
-            category: .films,
-            createdAt: Date(),
-            tags: [
-                "Science-fiction",
-                "Espace",
-                "Jedi"
-            ],
-            location: CLLocation(
-                latitude: 36.4915,
-                longitude: -117.2283
-            )
-        ),
+            Wiki(
+                title: "Star Wars",
+                subtitle: "Une galaxie lointaine",
+                creator: thomas,
+                imageName: URL(string: "https://picsum.photos/600/400?random=20")!,
+                description: "Star Wars présente une galaxie peuplée de nombreuses civilisations, Jedi, Sith et créatures.",
+                category: .films,
+                createdAt: Date(),
+                tags: ["Science-fiction", "Espace", "Jedi"],
+                location: CLLocation(latitude: 36.4915, longitude: -117.2283),
+                homeSegment: HomeSegment(elements: [
+                    Element(elementName: "Créateur", description: "George Lucas"),
+                    Element(elementName: "Premier film", description: "1977")
+                ]),
+                gallerySegment: GallerySegment(gallery: [
+                    ImageGallerySegment(image: "https://picsum.photos/600/400?random=21"),
+                    ImageGallerySegment(image: "https://picsum.photos/600/400?random=22")
+                ]),
+                descriptionSegment: DescriptionSegment(sections: [
+                    TextSection(
+                        title: "Résumé",
+                        contents: "Star Wars présente une galaxie peuplée de nombreuses civilisations, Jedi, Sith et créatures."
+                    )
+                ]),
+                linksSegment: LinksSegment(links: [])
+            ),
 
-        Wiki(
-            title: "Harry Potter",
-            subtitle: "Le monde des sorciers",
-            creator: sarah,
-            imageName: URL(string: "https://picsum.photos/600/400?random=30")!,
-            description:
-                "Harry Potter raconte l'histoire d'un jeune sorcier découvrant un monde magique caché.",
-            mediaImages: [
-                URL(string: "https://picsum.photos/600/400?random=31")!,
-                URL(string: "https://picsum.photos/600/400?random=32")!
-            ],
-            category: .livre,
-            createdAt: Date(),
-            tags: [
-                "Magie",
-                "Fantasy",
-                "Sorciers"
-            ],
-            location: CLLocation(
-                latitude: 51.5319,
-                longitude: -0.1246
-            )
-        ),
+            Wiki(
+                title: "Harry Potter",
+                subtitle: "Le monde des sorciers",
+                creator: sarah,
+                imageName: URL(string: "https://picsum.photos/600/400?random=30")!,
+                description: "Harry Potter raconte l'histoire d'un jeune sorcier découvrant un monde magique caché.",
+                category: .livre,
+                createdAt: Date(),
+                tags: ["Magie", "Fantasy", "Sorciers"],
+                location: CLLocation(latitude: 51.5319, longitude: -0.1246),
+                homeSegment: HomeSegment(elements: [
+                    Element(elementName: "Auteur", description: "J.K. Rowling"),
+                    Element(elementName: "Nombre de tomes", description: "7")
+                ]),
+                gallerySegment: GallerySegment(gallery: [
+                    ImageGallerySegment(image: "https://picsum.photos/600/400?random=31"),
+                    ImageGallerySegment(image: "https://picsum.photos/600/400?random=32")
+                ]),
+                descriptionSegment: DescriptionSegment(sections: [
+                    TextSection(
+                        title: "Résumé",
+                        contents: "Harry Potter raconte l'histoire d'un jeune sorcier découvrant un monde magique caché."
+                    )
+                ]),
+                linksSegment: LinksSegment(links: [])
+            ),
 
-        Wiki(
-            title: "Dragon",
-            subtitle: "Créature légendaire",
-            creator: sarah,
-            imageName: URL(string: "https://picsum.photos/600/400?random=40")!,
-            description:
-                "Le dragon est une créature mythologique présente dans de nombreuses cultures et légendes.",
-            mediaImages: [
-                URL(string: "https://picsum.photos/600/400?random=41")!,
-                URL(string: "https://picsum.photos/600/400?random=42")!
-            ],
-            category: .folklore,
-            createdAt: Date(),
-            tags: [
-                "Dragon",
-                "Mythologie",
-                "Créature"
-            ],
-            location: CLLocation(
-                latitude: 45.8326,
-                longitude: 6.8652
-            )
-        ),
+            Wiki(
+                title: "Dragon",
+                subtitle: "Créature légendaire",
+                creator: sarah,
+                imageName: URL(string: "https://picsum.photos/600/400?random=40")!,
+                description: "Le dragon est une créature mythologique présente dans de nombreuses cultures et légendes.",
+                category: .folklore,
+                createdAt: Date(),
+                tags: ["Dragon", "Mythologie", "Créature"],
+                location: CLLocation(latitude: 45.8326, longitude: 6.8652),
+                homeSegment: HomeSegment(elements: [
+                    Element(elementName: "Origine", description: "Mythologies européenne et asiatique"),
+                    Element(elementName: "Symbolique", description: "Puissance et sagesse")
+                ]),
+                gallerySegment: GallerySegment(gallery: [
+                    ImageGallerySegment(image: "https://picsum.photos/600/400?random=41"),
+                    ImageGallerySegment(image: "https://picsum.photos/600/400?random=42")
+                ]),
+                descriptionSegment: DescriptionSegment(sections: [
+                    TextSection(
+                        title: "Résumé",
+                        contents: "Le dragon est une créature mythologique présente dans de nombreuses cultures et légendes."
+                    )
+                ]),
+                linksSegment: LinksSegment(links: [])
+            ),
 
-        Wiki(
-            title: "Ghost in the Shell",
-            subtitle: "Univers cyberpunk",
-            creator: lucas,
-            imageName: URL(string: "https://picsum.photos/600/400?random=50")!,
-            description:
-                "Ghost in the Shell explore une société futuriste où humains et technologies cybernétiques se confondent.",
-            mediaImages: [
-                URL(string: "https://picsum.photos/600/400?random=51")!,
-                URL(string: "https://picsum.photos/600/400?random=52")!
-            ],
-            category: .series,
-            createdAt: Date(),
-            tags: [
-                "Cyberpunk",
-                "Manga",
-                "Technologie"
-            ],
-            location: CLLocation(
-                latitude: 35.6762,
-                longitude: 139.6503
-            )
-        ),
+            Wiki(
+                title: "Ghost in the Shell",
+                subtitle: "Univers cyberpunk",
+                creator: lucas,
+                imageName: URL(string: "https://picsum.photos/600/400?random=50")!,
+                description: "Ghost in the Shell explore une société futuriste où humains et technologies cybernétiques se confondent.",
+                category: .series,
+                createdAt: Date(),
+                tags: ["Cyberpunk", "Manga", "Technologie"],
+                location: CLLocation(latitude: 35.6762, longitude: 139.6503),
+                homeSegment: HomeSegment(elements: [
+                    Element(elementName: "Auteur", description: "Masamune Shirow"),
+                    Element(elementName: "Année", description: "1989")
+                ]),
+                gallerySegment: GallerySegment(gallery: [
+                    ImageGallerySegment(image: "https://picsum.photos/600/400?random=51"),
+                    ImageGallerySegment(image: "https://picsum.photos/600/400?random=52")
+                ]),
+                descriptionSegment: DescriptionSegment(sections: [
+                    TextSection(
+                        title: "Résumé",
+                        contents: "Ghost in the Shell explore une société futuriste où humains et technologies cybernétiques se confondent."
+                    )
+                ]),
+                linksSegment: LinksSegment(links: [])
+            ),
 
-        Wiki(
-            title: "One Piece",
-            subtitle: "Le monde des pirates",
-            creator: lucas,
-            imageName: URL(string: "https://picsum.photos/600/400?random=60")!,
-            description:
-                "One Piece suit Luffy et son équipage dans leur voyage à travers des océans remplis d'îles extraordinaires.",
-            mediaImages: [
-                URL(string: "https://picsum.photos/600/400?random=61")!,
-                URL(string: "https://picsum.photos/600/400?random=62")!
-            ],
-            category: .series,
-            createdAt: Date(),
-            tags: [
-                "Manga",
-                "Pirate",
-                "Aventure"
-            ],
-            location: CLLocation(
-                latitude: 35.6895,
-                longitude: 139.6917
+            Wiki(
+                title: "One Piece",
+                subtitle: "Le monde des pirates",
+                creator: lucas,
+                imageName: URL(string: "https://picsum.photos/600/400?random=60")!,
+                description: "One Piece suit Luffy et son équipage dans leur voyage à travers des océans remplis d'îles extraordinaires.",
+                category: .series,
+                createdAt: Date(),
+                tags: ["Manga", "Pirate", "Aventure"],
+                location: CLLocation(latitude: 35.6895, longitude: 139.6917),
+                homeSegment: HomeSegment(elements: [
+                    Element(elementName: "Auteur", description: "Eiichiro Oda"),
+                    Element(elementName: "Année", description: "1997")
+                ]),
+                gallerySegment: GallerySegment(gallery: [
+                    ImageGallerySegment(image: "https://picsum.photos/600/400?random=61"),
+                    ImageGallerySegment(image: "https://picsum.photos/600/400?random=62")
+                ]),
+                descriptionSegment: DescriptionSegment(sections: [
+                    TextSection(
+                        title: "Résumé",
+                        contents: "One Piece suit Luffy et son équipage dans leur voyage à travers des océans remplis d'îles extraordinaires."
+                    )
+                ]),
+                linksSegment: LinksSegment(links: [])
             )
-        )
-    ]
+        ]
 
     // =====================================================
     // MARK: - DISCUSSIONS
