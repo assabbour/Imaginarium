@@ -25,7 +25,6 @@ struct WikiCreationFormView: View {
             ScrollView {
                 VStack(spacing: 16) {
                     
-                    // MARK: - Champs propres au Wiki
                     VStack(spacing: 12) {
                         TextField("Titre", text: $viewModel.wiki.title)
                         TextField("Sous-titre", text: $viewModel.wiki.subtitle)
