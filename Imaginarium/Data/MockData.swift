@@ -279,7 +279,7 @@ struct MockData {
             comments: [
                 Comment(
                     creator: sarah,
-                    message: "Naboo.",
+                    message: "Naboo.NabooNabooNabooNabooNabooNabooNabooNabooNabooNabooNabooNabooNabooNabooNabooNabooNabooNabooNaboo",
                     createdAt: Date()
                 ),
                 Comment(

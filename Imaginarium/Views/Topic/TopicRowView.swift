@@ -39,9 +39,3 @@ struct TopicRowView: View {
         .padding(4)
     }
 }
-
-#Preview {
-    TopicRowView(topic: MockData.topics[0])
-    TopicRowView(topic: MockData.topics[1])
-    
-}
