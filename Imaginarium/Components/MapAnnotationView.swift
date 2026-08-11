@@ -9,10 +9,8 @@ import SwiftUI
 
 struct MapAnnotationView: View {
     let wiki: Wiki
-    @Environment(SharedWikiViewModel.self) var wikiCreationViewModel
     var body: some View {
         ZStack(alignment: .center) {
-            BackgroundGradient()
             UnevenRoundedRectangle(topLeadingRadius: 35.0,bottomLeadingRadius: 25.0, bottomTrailingRadius: 25.0, topTrailingRadius: 35.0)
                 .frame(width: 95, height: 92)
                 .foregroundStyle(.backgroundDarkBlue)

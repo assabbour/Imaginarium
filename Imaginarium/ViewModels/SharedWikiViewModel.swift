@@ -14,6 +14,16 @@ class SharedWikiViewModel{
     var wikis: [Wiki] = MockData.wikis
     
     // ajouter func filtre
+    func filterWikis(_ searchText: String) -> [Wiki] {
+        if searchText.isEmpty {
+            return wikis
+        } else {
+            return wikis.filter { wiki in
+                wiki.title.localizedCaseInsensitiveContains(searchText) ||
+                wiki.subtitle.localizedCaseInsensitiveContains(searchText) ||
+                wiki.tags.contains(where: { $0.localizedCaseInsensitiveContains(searchText) })
+            }
+        }
     // fonction d'ajout d'un wiki
     
     func addWiki(wiki: Wiki) {
