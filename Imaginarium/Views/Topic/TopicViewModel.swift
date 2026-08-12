@@ -43,7 +43,7 @@ class TopicViewModel {
             }
         }
     }
-    
+    // ajout histoire de
     var displayedCategories: [TopicCategory] {
         if let category = isCategorySelected {
             return [category]
