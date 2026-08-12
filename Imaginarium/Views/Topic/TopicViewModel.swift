@@ -13,6 +13,20 @@ class TopicViewModel {
     var copy = MockData.topics
     var isCategorySelected: TopicCategory? = nil
     
+// Porprietes d'un Topic
+    
+
+    var topic: Topic = Topic(
+        subject: "",
+        title: "",
+        creator: MockData.alex,
+        message: "",
+        category: .Favoris,
+        image: URL(string: "https://votre-image.com/test.jpg")!,
+        comments: []
+    )
+    
+    
     func filterTopic(_ topicFiltered: TopicCategory) -> [Topic] {
         return copy.filter{$0.category == topicFiltered}
     }
@@ -32,6 +46,8 @@ class TopicViewModel {
             return copy[index].comments.append(newComment)
         }
     }
+        
+// Validation du TopicForm
     
     func filterTopicSearchBar(_ searchText: String, categorySelected: TopicCategory) -> [Topic] {
         if searchText.isEmpty {
@@ -51,4 +67,5 @@ class TopicViewModel {
             return TopicCategory.allCases
         }
     }
+    var message: String = ""
 }

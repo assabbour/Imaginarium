@@ -25,7 +25,7 @@ struct TabBarView: View {
                 TopicHubView()
             }
             Tab("Profil", systemImage: "person") {
-                TopicHubView()
+                UserProfileView()
             }
         }
         .environment(sharedViewModel)
