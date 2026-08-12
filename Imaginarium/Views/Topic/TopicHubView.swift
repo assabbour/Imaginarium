@@ -7,20 +7,30 @@
 
 import SwiftUI
 
+enum Destination: Hashable {
+    case topic(Topic)
+    case create
+}
+
 struct TopicHubView: View {
     @State private var topicVM = TopicViewModel()
-    @State var path: [Topic] = []
+    @State var path: [Destination] = []
 
     var body: some View {
         NavigationStack(path: $path) {
-            ZStack {
+            ZStack(alignment: .bottomTrailing) {
                 BackgroundGradient()
-                VStack {
-                    TopicCategoryView(path: $path)
-                }
+                TopicCategoryView(path: $path)
+                
+                TopicCreationButtonView(path: $path)
             }
-            .navigationDestination(for: Topic.self) { selectedTopic in
-                TopicDetailedView(topic: selectedTopic)
+            .navigationDestination(for: Destination.self) { selectedScreen in
+                switch selectedScreen {
+                case .topic(let topic):
+                    TopicDetailedView(topic: topic)
+                case .create:
+                    TopicFormView()
+                }
             }
         }
         .environment(topicVM)

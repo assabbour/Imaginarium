@@ -15,7 +15,7 @@ struct TopicDetailedCommentView: View {
             ForEach(topicVM.comments(topic), id: \.createdAt) { comment in
                 VStack(alignment: .leading, spacing: 4) {
                     HStack {
-                        AsyncImage(url: topic.creator.profilPicture){ result in
+                        AsyncImage(url: comment.creator.profilPicture){ result in
                             if let image = result.image {
                                 image
                                     .resizable()
@@ -30,7 +30,7 @@ struct TopicDetailedCommentView: View {
                                     .allowsHitTesting(false)
                             }
                         }
-                        Text(topic.creator.pseudo)
+                        Text(comment.creator.pseudo)
                             .foregroundStyle(.white)
                     }
                     Text(comment.message)

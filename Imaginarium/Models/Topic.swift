@@ -20,7 +20,7 @@ struct Topic:Hashable, Identifiable {
     /// Image facultative associée à la publication.
     let image: URL?
     /// Réponses des autres utilisateurs.
-    let comments: [Comment]
+    var comments: [Comment]
 }
 
 
