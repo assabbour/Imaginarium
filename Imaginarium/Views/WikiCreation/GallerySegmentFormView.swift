@@ -17,8 +17,8 @@ struct GallerySegmentFormView: View {
         @Bindable var viewModel = wikiCreationViewModel
         
         ZStack {
-            BackgroundGradient()
-                .ignoresSafeArea()
+//            BackgroundGradient()
+//                .ignoresSafeArea()
             
             Form {
                 Section("Nouvelle image") {

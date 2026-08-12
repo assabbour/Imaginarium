@@ -12,41 +12,42 @@ struct TopicFormView: View {
     @Environment(TopicViewModel.self) var topicVM
     
     var body: some View {
+        @Bindable var viewModel = topicVM
+        
         ZStack {
             BackgroundGradient()
                 .ignoresSafeArea()
             
-//            Picker("Catégorie", selection: $topicVM) {
-//                ForEach(Category.allCases, id: \.self) { category in
-//                    Text(String(describing: category)).tag(category)
+            VStack{
+//                AsyncImage(url: URL(string: image)) { image in
+//                    image.resizable().scaledToFill()
+//                } placeholder: {
+//                    ProgressView()
 //                }
-//            }
+                Group{
+                    TextField("Titre", text: $viewModel.topic.title)
+                    TextField("Sujet", text: $viewModel.topic.subject)
+                    TextField("Description", text: $viewModel.message)
+                }
+                .background()
+                
+                
+                TopicCommentFormView()
+                
+
+            Picker("Catégorie", selection: $viewModel.copy) {
+                ForEach(Category.allCases, id: \.self) { category in
+                    Text(String(describing: category)).tag(category)
+                    }
+                }
+            }
         }
     }
 }
 
 #Preview {
     TopicFormView()
+        .environment(TopicViewModel())
 }
 
 
-//enum TopicCategory :Hashable, CaseIterable {
-//    case Favoris
-//    case Trending
-//    case Decouvrir
-//
-//}
-//
-//struct Topic:Hashable, Identifiable {
-//    let id = UUID()
-//    /// Sujet de la discussion.
-//    var subject: String
-//    let title: String
-//    var creator: User
-//    let message: String?
-//    var category : TopicCategory
-//    /// Image facultative associée à la publication.
-//    let image: URL?
-//    /// Réponses des autres utilisateurs.
-//    let comments: [Comment]
-//}

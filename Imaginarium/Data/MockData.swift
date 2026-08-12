@@ -16,7 +16,7 @@ struct MockData {
         password: "password",
         profilPicture: URL(string: "https://i.pravatar.cc/300?img=11")!,
         pays: .france,
-        description: "Passionné de jeux vidéo et de mondes fantastiques.",
+        description: "Alex explore depuis de longues années les frontières entre le folklore ancien et les récits d'anticipation moderne. Passionné par la préservation des légendes oubliées, il documente avec minutie les sanctuaires cachés et les créatures mythologiques qui peuplent nos imaginaires",
         createdAt: Date(),
         role: .user
     )
@@ -204,7 +204,32 @@ struct MockData {
                 ]),
                 linksSegment: LinksSegment(links: [])
             ),
-
+            Wiki(
+                        title: "Star Wars",
+                        subtitle: "Une galaxie lointaine",
+                        creator: alex, // <--- ICI : c'était "thomas" avant
+                        imageName: URL(string: "https://picsum.photos/600/400?random=20")!,
+                        description: "Star Wars présente une une créature mythologique présente dans de nombreuses cultures et légendes galaxie peuplée de nombreuses civilisations, Jedi, Sith et créatures. une créature mythologique présente dans de nombreuses cultures et légendes",
+                        category: .films,
+                        createdAt: Date(),
+                        tags: ["Science-fiction", "Espace", "Jedi"],
+                        location: CLLocation(latitude: 36.4915, longitude: -117.2283),
+                        homeSegment: HomeSegment(elements: [
+                            Element(elementName: "Créateur", description: "George Lucas"),
+                            Element(elementName: "Premier film", description: "1977")
+                        ]),
+                        gallerySegment: GallerySegment(gallery: [
+                            ImageGallerySegment(image: "https://picsum.photos/600/400?random=21"),
+                            ImageGallerySegment(image: "https://picsum.photos/600/400?random=22")
+                        ]),
+                        descriptionSegment: DescriptionSegment(sections: [
+                            TextSection(
+                                title: "Résumé",
+                                contents: "Star Wars présente une galaxie peuplée de nombreuses civilisations, Jedi, Sith et créatures."
+                            )
+                        ]),
+                        linksSegment: LinksSegment(links: [])
+                    ),
             Wiki(
                 title: "Ghost in the Shell",
                 subtitle: "Univers cyberpunk",
@@ -290,14 +315,14 @@ struct MockData {
         Topic(
             subject: "Toy Story",
             title: "Quelle planète Star Wars visiter ?",
-            creator: thomas,
-            message: "Si vous pouviez visiter une planète de Star Wars, laquelle choisiriez-vous ?",
+            creator: alex,
+            message: "Star Wars présente une galaxie peuplée de nombreuses civilisations, Jedi, Sith et créatures. Si vous pouviez visiter une planète de Star Wars, laquelle choisiriez-vous ?",
             category: .Favoris,
             image: URL(string: "https://i.ytimg.com/vi/uBh8Sg8wOuA/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCgPil4po184W7q0_EpfJCs3GeAig"),
             comments: [
                 Comment(
                     creator: sarah,
-                    message: "Naboo.NabooNabooNabooNabooNabooNabooNabooNabooNabooNabooNabooNabooNabooNabooNabooNabooNabooNabooNaboo",
+                    message: "Star Wars présente une galaxie peuplée de nombreuses civilisations, Jedi, Sith et créatures",
                     createdAt: Date()
                 ),
                 Comment(
