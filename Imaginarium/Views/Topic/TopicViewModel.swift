@@ -11,6 +11,7 @@ import Foundation
 class TopicViewModel {
     
     var copy = MockData.topics
+    var isCategorySelected: TopicCategory? = nil
     
 // Porprietes d'un Topic
     

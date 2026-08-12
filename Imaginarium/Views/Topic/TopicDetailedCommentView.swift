@@ -42,7 +42,6 @@ struct TopicDetailedCommentView: View {
                 .clipShape(RoundedRectangle(cornerRadius: 8))
             }
             .frame(maxWidth: .infinity, alignment: .leading)
-            
         }
     }
 }
