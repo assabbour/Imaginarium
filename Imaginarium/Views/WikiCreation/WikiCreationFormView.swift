@@ -22,7 +22,14 @@ struct WikiCreationFormView: View {
             BackgroundGradient()
                 .ignoresSafeArea()
             
-                VStack(spacing: 16) {
+            VStack(spacing: 16) {
+                
+                VStack(spacing: 12) {
+                    TextField("Titre", text: $viewModel.wiki.title)
+                    TextField("Sous-titre", text: $viewModel.wiki.subtitle)
+                    TextField("Description", text: $viewModel.wiki.description, axis: .vertical)
+                        .lineLimit(3...6)
+                    TextField("URL de l'image", text: $viewModel.imgTextToURL)
                     
                     VStack(spacing: 12) {
                         
@@ -73,16 +80,22 @@ struct WikiCreationFormView: View {
                             LinksSegmentFormView()
                         default:
                             HomeSegmentFormView()
+
                         }
                     }
                     
-                    if !viewModel.errorMessages.isEmpty {
-                        VStack(alignment: .leading, spacing: 4) {
-                            ForEach(viewModel.errorMessages, id: \.self) { message in
-                                Text(message)
-                            }
+                    HStack {
+                        TextField("Ajouter un tag", text: $newTag)
+                        Button("Ajouter") {
+                            let trimmed = newTag.trimmingCharacters(in: .whitespaces)
+                            guard !trimmed.isEmpty else { return }
+                            viewModel.wiki.tags.append(trimmed)
+                            newTag = ""
                         }
-                        .padding(.horizontal)
+                    }
+                    if !viewModel.wiki.tags.isEmpty {
+                        Text(viewModel.wiki.tags.joined(separator: ", "))
+                            .font(.caption)
                     }
                     
                     Picker("Catégorie", selection: $viewModel.wiki.category) {
@@ -112,12 +125,51 @@ struct WikiCreationFormView: View {
                     }
                     
                     Spacer()
+
                 }
+                .padding(.horizontal)
+                
+                
+                CustomSegmentedBar(
+                    tabs: viewModel.tabs,
+                    selectedTab: $viewModel.selectedTab
+                )
+                .padding(.horizontal)
+                
+                Group {
+                    switch viewModel.selectedTab {
+                    case "Home":
+                        HomeSegmentFormView()
+                    case "Gallery":
+                        GallerySegmentFormView()
+                    case "Description":
+                        DescriptionSegmentFormView()
+                    case "Links":
+                        LinksSegmentFormView()
+                    default:
+                        HomeSegmentFormView()
+                    }
+                }
+                
+                if !viewModel.errorMessages.isEmpty {
+                    VStack(alignment: .leading, spacing: 4) {
+                        ForEach(viewModel.errorMessages, id: \.self) { message in
+                            Text(message)
+                        }
+                    }
+                    .padding(.horizontal)
+                }
+                
+                Button("Créer le wiki") {
+                    let success = wikiCreationViewModel.createWiki(in: sharedViewModel)
+                }
+                
+                Spacer()
+            }
         }
         .environment(wikiCreationViewModel)
     }
 }
-
 #Preview {
     WikiCreationFormView()
         .environment(SharedWikiViewModel())
