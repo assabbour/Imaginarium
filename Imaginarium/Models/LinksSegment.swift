@@ -7,14 +7,13 @@
 
 import Foundation
 
-// LinksSegment.swift
-
-struct LinkItem: Identifiable {
-    let id = UUID()
-    var linkedWikiImage: String //Img d'un wiki
+struct LinkItem: Identifiable, Hashable {
+    let id: UUID = UUID()
+    var linkedTitle: String//Titre du wiki
+    var linkedWikiImage: URL //Img d'un wiki, definir nil par defaut car pas d'autre valeur par defaut hormis une image (ou un nil)
     var linkedWikiID: UUID
 }
 
-struct LinksSegment {
+struct LinksSegment: Hashable{
     var links: [LinkItem]
 }

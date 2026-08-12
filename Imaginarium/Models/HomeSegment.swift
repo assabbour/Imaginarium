@@ -7,10 +7,12 @@
 
 import Foundation
 
-struct HomeSegment {
-    var image: String
-    var title: String
-    var location: String
-    var elements: [TextSection]
+struct Element: Identifiable, Hashable {
+    let id:UUID = UUID()
+    var elementName: String
     var description: String
+}
+
+struct HomeSegment: Hashable {
+    var elements: [Element]
 }

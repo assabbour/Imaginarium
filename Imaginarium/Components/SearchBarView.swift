@@ -18,6 +18,7 @@ struct SearchBarView: View {
             // Icône de loupe à gauche
             Image(systemName: "magnifyingglass")
                 .foregroundColor(.white.opacity(0.7))
+
             
             // Champ de saisie de texte
             TextField(placeholder, text: $text)
@@ -38,11 +39,10 @@ struct SearchBarView: View {
         // Espacement interne du composant
         .padding(.vertical, 10)
         .padding(.horizontal, 14)
-        
-        // Fond sombre translucide
+        .colorScheme(.dark)
         .background(
             RoundedRectangle(cornerRadius: 20)
-                .fill(Color.white.opacity(0.08))
+                .glassEffect(.regular.tint(.clear).interactive())
         )
         
         // Contour fin translucide (style identique au design Figma)
@@ -52,6 +52,7 @@ struct SearchBarView: View {
         )
     }
 }
+
 
 // MARK: - Aperçu Xcode
 

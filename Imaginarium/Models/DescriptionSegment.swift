@@ -7,6 +7,12 @@
 
 import Foundation
 
-struct DescriptionSegment {
+struct TextSection: Identifiable, Hashable { // gestion d'un bloc text
+    let id: UUID = UUID()
+    var title:String
+    var contents: String
+}
+
+struct DescriptionSegment: Hashable {
     var sections: [TextSection]
 }
