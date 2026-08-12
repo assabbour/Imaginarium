@@ -12,11 +12,8 @@ struct ComponentTitle: View {
     
     var body: some View {
         Text(title)
-            .font(.system(size: 35))
-            .fontWeight(.semibold)
-            .padding()
-            .frame(maxWidth: .infinity, alignment: .center)
-            .foregroundStyle(.white)
+            .font(.system(size: 28, weight: .bold))
+            .foregroundColor(.white)
         
     }
 }

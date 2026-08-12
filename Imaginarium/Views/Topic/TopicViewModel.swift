@@ -11,6 +11,7 @@ import Foundation
 class TopicViewModel {
     
     var copy = MockData.topics
+    var isCategorySelected: TopicCategory? = nil
     
     func filterTopic(_ topicFiltered: TopicCategory) -> [Topic] {
         return copy.filter{$0.category == topicFiltered}
@@ -31,5 +32,23 @@ class TopicViewModel {
             return copy[index].comments.append(newComment)
         }
     }
-        
+    
+    func filterTopicSearchBar(_ searchText: String, categorySelected: TopicCategory) -> [Topic] {
+        if searchText.isEmpty {
+            return filterTopic(categorySelected)
+        } else {
+            return filterTopic(categorySelected).filter { topic in
+                topic.subject.localizedCaseInsensitiveContains(searchText)
+                || topic.title.localizedCaseInsensitiveContains(searchText)
+            }
+        }
+    }
+    
+    var displayedCategories: [TopicCategory] {
+        if let category = isCategorySelected {
+            return [category]
+        } else {
+            return TopicCategory.allCases
+        }
+    }
 }

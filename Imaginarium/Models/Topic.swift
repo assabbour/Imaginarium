@@ -2,7 +2,7 @@ import Foundation
 
 /// Représente une discussion créée dans l'espace communautaire.
 
-enum TopicCategory :Hashable, CaseIterable {
+enum TopicCategory :String,Hashable, CaseIterable {
     case Favoris
     case Trending
     case Decouvrir
