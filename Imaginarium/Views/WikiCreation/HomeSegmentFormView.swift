@@ -18,14 +18,14 @@ struct HomeSegmentFormView: View {
         @Bindable var viewModel = wikiCreationViewModel // il faut que la vue soit créée pour que le binding fonctionne d'ou l'importance de le placer DANS le body
         
         ZStack {
-            BackgroundGradient() /*applique la couleur sur toute la zstack et lui donne une taille*/
-                .ignoresSafeArea() /* Applique le safeArea UNIQUEMENT sur le background et pas a toute la view donc cool*/
-            
+//            BackgroundGradient() /*applique la couleur sur toute la zstack et lui donne une taille*/
+//                .ignoresSafeArea() /* Applique le safeArea UNIQUEMENT sur le background et pas a toute la view donc cool*/
+//            
             Form {
-                Section("Nouvel élément") {
-                    TextField("Nom", text: $newElementName)
-                    TextField("Description", text: $newElementDescription, axis: .vertical)
-                        .lineLimit(2...4)
+                Section(header:Text("Nouvel élément")
+                    .foregroundStyle(.white)) {
+                    TextField("Titre", text: $newElementName)
+                    TextField("Description", text: $newElementDescription, axis: .vertical) // permet de choisir l'axe d'expension
                     
                     Button("Ajouter") {
                         wikiCreationViewModel.addHomeElement(name: newElementName, description: newElementDescription)
@@ -34,9 +34,16 @@ struct HomeSegmentFormView: View {
                     }
                     .disabled(newElementName.trimmingCharacters(in: .whitespaces).isEmpty ||
                               newElementDescription.trimmingCharacters(in: .whitespaces).isEmpty)
+                    .foregroundStyle(.black)
+                    .fontWeight(.bold)
+                    .padding(12)
+                    .background(.accentExtraLight)
+                    .cornerRadius(24)
+                    .frame(maxWidth: .infinity)
+                    
                 }
                 
-                Section("Éléments ajoutés") {
+                Section(header:Text("Éléments ajoutés").foregroundStyle(.white)) {
                     ForEach(viewModel.wiki.homeSegment.elements) { element in
                         VStack(alignment: .leading) {
                             Text(element.elementName).fontWeight(.semibold)

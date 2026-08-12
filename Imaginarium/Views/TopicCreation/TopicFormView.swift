@@ -24,10 +24,13 @@ struct TopicFormView: View {
 //                } placeholder: {
 //                    ProgressView()
 //                }
+                Group{
+                    TextField("Titre", text: $viewModel.topic.title)
+                    TextField("Sujet", text: $viewModel.topic.subject)
+                    TextField("Description", text: $viewModel.message)
+                }
+                .background()
                 
-                TextField("Titre", text: $viewModel.topic.title)
-                TextField("Sujet", text: $viewModel.topic.subject)
-                TextField("Description", text: $viewModel.message)
                 
                 TopicCommentFormView()
                 

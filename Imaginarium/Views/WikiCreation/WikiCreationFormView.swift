@@ -25,39 +25,35 @@ struct WikiCreationFormView: View {
                 VStack(spacing: 16) {
                     
                     VStack(spacing: 12) {
-                        TextField("Titre", text: $viewModel.wiki.title)
-                        TextField("Sous-titre", text: $viewModel.wiki.subtitle)
-                        TextField("Description", text: $viewModel.wiki.description, axis: .vertical)
-                            .lineLimit(3...6)
-                        TextField("URL de l'image", text: $viewModel.imgTextToURL)
                         
-                        Picker("Catégorie", selection: $viewModel.wiki.category) {
-                            ForEach(Category.allCases, id: \.self) { category in
-                                Text(String(describing: category)).tag(category)
+                        Text("Creation d'un Wiki")
+                            .font(.system(size: 28, weight: .bold))
+                            .foregroundColor(.white)
+                            //alignment du titre a gauche
+                        
+                        Spacer()
+                        
+                        Form {
+                            Section{
+                                HStack {
+                                    TextField("URL de l'image", text: $viewModel.imgTextToURL)
+                                    VStack{
+                                        TextField("Titre", text: $viewModel.wiki.title)
+                                        TextField("Sous-titre", text: $viewModel.wiki.subtitle)
+                                        TextField("Latitude", text: $viewModel.latitudeText)
+                                            .keyboardType(.decimalPad)
+                                        TextField("Longitude", text: $viewModel.longitudeText)
+                                            .keyboardType(.decimalPad)
+                                    }
+                                }
                             }
                         }
-                        
-                        HStack {
-                            TextField("Ajouter un tag", text: $newTag)
-                            Button("Ajouter") {
-                                let trimmed = newTag.trimmingCharacters(in: .whitespaces)
-                                guard !trimmed.isEmpty else { return }
-                                viewModel.wiki.tags.append(trimmed)
-                                newTag = ""
-                            }
-                        }
-                        if !viewModel.wiki.tags.isEmpty {
-                            Text(viewModel.wiki.tags.joined(separator: ", "))
-                                .font(.caption)
-                        }
-                        
-                        TextField("Latitude", text: $viewModel.latitudeText)
-                            .keyboardType(.decimalPad)
-                        TextField("Longitude", text: $viewModel.longitudeText)
-                            .keyboardType(.decimalPad)
+                        .scrollContentBackground(.hidden) // rend invisble le bg par defaut du form
+
+//                        .clipShape si je n'utilise pas de Form
                     }
-                    .padding(.horizontal)
                     
+                   
 
                     CustomSegmentedBar(
                         tabs: viewModel.tabs,
@@ -88,6 +84,28 @@ struct WikiCreationFormView: View {
                         }
                         .padding(.horizontal)
                     }
+                    
+                    Picker("Catégorie", selection: $viewModel.wiki.category) {
+                        ForEach(Category.allCases, id: \.self) { category in
+                            Text(String(describing: category)).tag(category)
+                        }
+                    }
+                    .background(.red)
+                        
+                    
+                        HStack {
+                            TextField("Ajouter un tag", text: $newTag)
+                            Button("Ajouter") {
+                                let trimmed = newTag.trimmingCharacters(in: .whitespaces)
+                                guard !trimmed.isEmpty else { return }
+                                viewModel.wiki.tags.append(trimmed)
+                                newTag = ""
+                            }
+                        }
+                        if !viewModel.wiki.tags.isEmpty {
+                            Text(viewModel.wiki.tags.joined(separator: ", "))
+                                .font(.caption)
+                        }
                     
                     Button("Créer le wiki") {
                         let success = wikiCreationViewModel.createWiki(in: sharedViewModel)
