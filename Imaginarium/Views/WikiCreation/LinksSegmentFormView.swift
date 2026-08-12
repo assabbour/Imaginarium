@@ -27,8 +27,6 @@ struct LinksSegmentFormView: View {
         @Bindable var viewModel = wikiCreationViewModel
         
         ZStack {
-            BackgroundGradient()
-                .ignoresSafeArea()
             
             Form {
                 Section("Rechercher un wiki") {
