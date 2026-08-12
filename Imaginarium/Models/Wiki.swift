@@ -4,12 +4,12 @@ import MapKit
 /// Représente une fiche détaillée du Wiki.
 /// Elle est affichée lorsque l'utilisateur sélectionne un élément.
 
-enum Category : CaseIterable, Hashable {
+enum Category : String, CaseIterable, Hashable{
     case films
     case series
     case livre
     case folklore
-    case any
+    case all
 }
 
 struct Wiki: Identifiable, PContent, Hashable {

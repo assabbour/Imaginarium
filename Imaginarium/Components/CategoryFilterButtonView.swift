@@ -8,22 +8,16 @@
 import SwiftUI
 
 struct CategoryFilterButtonView: View {
-    @Binding var categoryType: Category
     
-// This is how we avoid passing the var name in the view constructor - for later
-//    init(_ categoryType: Binding<String>) {
-//        self._categoryType = categoryType
-//    }
+    @Environment(SharedWikiViewModel.self) var sharedViewModel
     
     var body: some View {
         HStack {
             Spacer()
-            Button(action: {
-                // Action ou on change la categorie
-            }) {
-                Image(systemName: "line.3.horizontal.decrease")
-                    .font(.title2)
-                    .foregroundColor(.white)
+            VStack {
+                Image(systemName: "line.3.horizontal.decrease.circle")
+                    .font(.title)
+                    .glassEffect(.clear)
             }
         }
         .padding(.top, 5)
@@ -31,7 +25,3 @@ struct CategoryFilterButtonView: View {
         .padding(.horizontal)
     }
 }
-
-//#Preview {
-//    CategoryFilterButtonView()
-//}

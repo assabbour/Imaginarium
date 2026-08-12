@@ -11,10 +11,9 @@ import MapKit
 
 struct MapView: View {
    
-    @Environment(SharedWikiViewModel.self) var viewModel
+    @Environment(SharedWikiViewModel.self) var sharedViewModel
     
     @State private var searchText: String = ""
-    @State var categoryType = Category.any
     @State var isSheetPresented: Bool = false
     @State var passWikiToSheet: Wiki = MockData.wikis[0] // default data, we never see it
     
@@ -22,8 +21,7 @@ struct MapView: View {
         NavigationStack() {
             ZStack {
                 Map(position: .constant(.automatic)) {
-                    ForEach(viewModel.filterWikis(searchText)) { item in
-                        if categoryType == categoryType {
+                    ForEach(sharedViewModel.filterWikis(searchText, selected: sharedViewModel.selectedCategory)) { item in
                             Annotation(item.title, coordinate: item.location.coordinate, anchor: .center) {
                                 Button {
                                     passWikiToSheet = item
@@ -33,22 +31,26 @@ struct MapView: View {
                                 }
                             }
                             .annotationTitles(.hidden)
-                        }
+                        
                     }
                 }
 //                .colorScheme(.dark)
-                // toolbar
                 VStack {
-                    CategoryFilterButtonView(categoryType: $categoryType)
+                    CategorySelectionView()
+                        .padding(.horizontal, 18)
+                        .padding(.top, 8)
+                        .padding(.bottom, 5+5)
                     UIKitSearchBarView(text: $searchText)
                     Spacer()
                 }
-                .padding(.top, 10)
+                
             }
             .navigationBarTitle("", displayMode: .inline)
             .navigationBarHidden(true)
         }
-
+        .toolbar(content: {
+            CategorySelectionView()
+        })
         .sheet(isPresented: $isSheetPresented, content: {
             MapSheetView(wiki: passWikiToSheet)
             .presentationDetents([.medium])
