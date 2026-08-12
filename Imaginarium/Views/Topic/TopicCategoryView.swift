@@ -2,7 +2,7 @@ import SwiftUI
 
 struct TopicCategoryView: View {
     @Environment(TopicViewModel.self) var topicVM
-    @Binding var path : [Topic]
+    @Binding var path : [Destination]
     var body: some View {
         VStack {
             ScrollView {
@@ -15,7 +15,7 @@ struct TopicCategoryView: View {
                                 ForEach(topicVM.filterTopic(topicFiltered)) { topic in
                                     TopicRowView(topic: topic)
                                         .onTapGesture {
-                                            path.append(topic)
+                                            path.append(Destination.topic(topic))
                                         }
                                 }
                             }

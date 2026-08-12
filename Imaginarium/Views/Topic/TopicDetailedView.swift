@@ -36,6 +36,8 @@ struct TopicDetailedView: View {
                         .padding(.vertical)
                     
                     TopicDetailedCommentView(topic: topic)
+                    
+                    TopicDetailedAddComment(topic: topic, userComment: "")
                 }
                 .padding()
             }

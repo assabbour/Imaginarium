@@ -97,7 +97,6 @@ struct WikiCreationFormView: View {
                 }
         }
         .environment(wikiCreationViewModel)
-    }
 }
 
 #Preview {
