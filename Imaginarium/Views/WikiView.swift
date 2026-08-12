@@ -22,20 +22,20 @@ struct WikiView: View {
                 
                 VStack(spacing: 16) {
                     
-                    HStack {
-                        Text("Imaginarium")
-                            .font(.system(size: 28, weight: .bold))
-                            .foregroundColor(.white)
-                        
-                        Spacer()
-                        CategorySelectionView()
-                    }
-                    .padding(.horizontal)
-                    .padding(.top, 8)
-            
-                    SearchBarView(text: $searchText, placeholder: "Search")
-                        .padding(.horizontal)
-                    
+//                    HStack {
+//                        Text("Imaginarium")
+//                            .font(.system(size: 28, weight: .bold))
+//                            .foregroundColor(.white)
+//                        
+//                        Spacer()
+//                        CategorySelectionView()
+//                    }
+//                    .padding(.leading)
+//                    .padding(.top, 8)
+//                
+//                    SearchBarView(text: $searchText, placeholder: "Search")
+//                        .padding(.horizontal)
+                    SharedHeaderView(searchText: $searchText, title: "Imaginarium")
                     ScrollView(showsIndicators: false) {
                         LazyVStack(spacing: 18) {
                             ForEach(sharedViewModel.filterWikis(searchText, selected: sharedViewModel.selectedCategory)) { wiki in
@@ -53,6 +53,7 @@ struct WikiView: View {
                         .padding(.top, 4)
                         .padding(.bottom, 80)
                     }
+                    .padding(.horizontal)
                 }
             }
             // Déclaration de la destination de navigation liée au type Wiki

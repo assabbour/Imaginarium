@@ -8,11 +8,30 @@
 import SwiftUI
 
 struct SharedHeaderView: View {
+    @Binding var searchText: String
+    var title: String
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            HStack {
+                ComponentTitle(title: title)
+                    .font(.system(size: 28, weight: .bold))
+                    .foregroundColor(.white)
+                    .frame(minHeight:65)
+                
+                Spacer()
+                CategorySelectionView()
+                    .padding(.bottom,5)
+            }
+            .padding(.leading)
+            .padding(.top, 8)
+            
+            UIKitSearchBarView(text: $searchText)
+        }
+        .padding(.horizontal)
     }
+    
 }
 
-#Preview {
-    SharedHeaderView()
-}
+//#Preview {
+//    SharedHeaderView()
+//}
