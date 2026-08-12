@@ -13,13 +13,22 @@ struct TopicDetailedHeaderRowView: View {
     var body: some View {
         VStack(alignment: .leading){
             HStack {
-                // remplacé par user
-                Image("placeholder")
-                    .resizable()
-                    .frame(width: 35, height: 35)
-                    .clipShape(.circle)
-                
-                Text("Yami")
+                AsyncImage(url: topic.creator.profilPicture){ result in
+                    if let image = result.image {
+                        image
+                            .resizable()
+                            .frame(width: 35, height: 35)
+                            .clipShape(.circle)
+                            .allowsHitTesting(false)
+                    } else {
+                        Image("placeholder")
+                            .resizable()
+                            .frame(width: 35, height: 35)
+                            .clipShape(.circle)
+                            .allowsHitTesting(false)
+                    }
+                }
+                Text(topic.creator.pseudo)
                     .foregroundStyle(.white)
             }
             Text(topic.title)
