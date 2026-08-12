@@ -27,7 +27,7 @@ struct UIKitSearchBarView: View {
             RoundedRectangle(cornerRadius: 20)
                 .glassEffect(.regular.tint(.clear).interactive())
         )
-        .padding()
+        .padding(.horizontal)
         .colorScheme(.dark)
     }
 }
