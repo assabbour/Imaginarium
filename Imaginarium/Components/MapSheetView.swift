@@ -12,6 +12,7 @@ struct MapSheetView: View {
     var body: some View {
         VStack(alignment: .leading) {
             Text(wiki.title)
+                .foregroundStyle(.white)
                 .font(.title)
                 .padding()
             ScrollView(.horizontal) {
@@ -26,11 +27,13 @@ struct MapSheetView: View {
                             .scaledToFill()
                             .frame(maxWidth: .infinity, maxHeight: 180)
                             .clipped()
+                            .clipShape(UnevenRoundedRectangle(topLeadingRadius: 0.0,bottomLeadingRadius: 25.0, bottomTrailingRadius: 0.0, topTrailingRadius: 25.0))
                             .allowsHitTesting(false)
                         }
                     }
             }
             Text(wiki.description)
+                .foregroundStyle(.white)
                 .padding(.bottom, 5)
                 .font(.default)
                 .padding(.horizontal, 8)

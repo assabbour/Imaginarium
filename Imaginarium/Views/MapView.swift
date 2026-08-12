@@ -19,7 +19,7 @@ struct MapView: View {
     @State var passWikiToSheet: Wiki = MockData.wikis[0] // default data, we never see it
     
     var body: some View {
-//        NavigationStack() {
+        NavigationStack() {
             ZStack {
                 Map(position: .constant(.automatic)) {
                     ForEach(viewModel.filterWikis(searchText)) { item in
@@ -36,19 +36,23 @@ struct MapView: View {
                         }
                     }
                 }
-                .colorScheme(.dark)
+//                .colorScheme(.dark)
                 // toolbar
                 VStack {
                     CategoryFilterButtonView(categoryType: $categoryType)
                     UIKitSearchBarView(text: $searchText)
                     Spacer()
                 }
+                .padding(.top, 10)
             }
-//        }
+            .navigationBarTitle("", displayMode: .inline)
+            .navigationBarHidden(true)
+        }
+
         .sheet(isPresented: $isSheetPresented, content: {
             MapSheetView(wiki: passWikiToSheet)
             .presentationDetents([.medium])
-//            .presentationBackground(.accentDark)
+            .presentationBackground(.backgroundLightBlue.opacity(0.4))
         })
     }
 }

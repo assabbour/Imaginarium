@@ -10,7 +10,7 @@ import SwiftUI
 struct CategoryFilterButtonView: View {
     @Binding var categoryType: Category
     
-// This is how we avoid passing the var name in the view constructor
+// This is how we avoid passing the var name in the view constructor - for later
 //    init(_ categoryType: Binding<String>) {
 //        self._categoryType = categoryType
 //    }
@@ -26,7 +26,8 @@ struct CategoryFilterButtonView: View {
                     .foregroundColor(.white)
             }
         }
-        .padding(.bottom, 8)
+        .padding(.top, 5)
+        .padding(.bottom, 5)
         .padding(.horizontal)
     }
 }
