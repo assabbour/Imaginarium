@@ -29,4 +29,14 @@ class SharedWikiViewModel{
     func addWiki(wiki: Wiki) {
         wikis.append(wiki)
     }
+    
+    var selectedCategory: Category? = .any
+
+    func filterByCategory(_ selectedCategory: Category) -> [Wiki] {
+            if selectedCategory == selectedCategory {
+                return wikis.filter { $0.category == selectedCategory }
+            } else {
+                return wikis
+            }
+        }
 }
