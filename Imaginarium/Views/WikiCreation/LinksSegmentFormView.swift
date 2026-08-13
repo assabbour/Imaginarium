@@ -29,7 +29,7 @@ struct LinksSegmentFormView: View {
         ZStack {
             
             Form {
-                Section("Rechercher un wiki") {
+                Section(header:Text("Rechercher un wiki").foregroundStyle(.white)) {
                     SearchBarView(text: $searchText, placeholder: "Nom du wiki")
                     
                     ForEach(filteredWikis) { wiki in
@@ -42,7 +42,7 @@ struct LinksSegmentFormView: View {
                     }
                 }
                 
-                Section("Liens ajoutés") {
+                Section(header:Text("Liens ajoutés").foregroundStyle(.white)) {
                     ForEach(viewModel.wiki.linksSegment?.links ?? []) { link in
                         Text(link.linkedTitle)
                     }

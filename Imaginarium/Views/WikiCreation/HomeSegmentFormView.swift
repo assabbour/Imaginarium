@@ -18,9 +18,7 @@ struct HomeSegmentFormView: View {
         @Bindable var viewModel = wikiCreationViewModel // il faut que la vue soit créée pour que le binding fonctionne d'ou l'importance de le placer DANS le body
         
         ZStack {
-//            BackgroundGradient() /*applique la couleur sur toute la zstack et lui donne une taille*/
-//                .ignoresSafeArea() /* Applique le safeArea UNIQUEMENT sur le background et pas a toute la view donc cool*/
-//            
+
             Form {
                 Section(header:Text("Nouvel élément")
                     .foregroundStyle(.white)) {

@@ -18,11 +18,9 @@ struct DescriptionSegmentFormView: View {
         @Bindable var viewModel = wikiCreationViewModel
         
         ZStack {
-//            BackgroundGradient()
-//                .ignoresSafeArea()
             
             Form {
-                Section("Nouvelle section") {
+                Section(header:Text("Nouvelle section").foregroundStyle(.white)) {
                     TextField("Titre de la section", text: $newSectionTitle)
                     TextField("Contenu", text: $newSectionContent, axis: .vertical)
                         .lineLimit(3...6)
@@ -34,9 +32,15 @@ struct DescriptionSegmentFormView: View {
                     }
                     .disabled(newSectionTitle.trimmingCharacters(in: .whitespaces).isEmpty ||
                               newSectionContent.trimmingCharacters(in: .whitespaces).isEmpty)
+                    .foregroundStyle(.black)
+                    .fontWeight(.bold)
+                    .padding(12)
+                    .background(.accentExtraLight)
+                    .cornerRadius(24)
+                    .frame(maxWidth: .infinity)
                 }
                 
-                Section("Sections ajoutées") {
+                Section(header:Text("Sections ajoutées").foregroundStyle(.white)) {
                     ForEach(viewModel.wiki.descriptionSegment?.sections ?? []) { section in
                         VStack(alignment: .leading) {
                             Text(section.title).fontWeight(.semibold)
