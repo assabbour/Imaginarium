@@ -1,35 +1,36 @@
 import Foundation
 import MapKit
 
-/// Données statiques 
+/// Données statiques
 struct MockData {
 
     // =====================================================
     // MARK: - USERS
     // =====================================================
 
+    // User CONNECTÉ
     static let alex = User(
         id: UUID(),
         email: "alex@imaginarium.app",
         pseudo: "Alex",
         password: "password",
         profilPicture: URL(string: "https://i.pravatar.cc/300?img=11")!,
-        pays: .France,
-        description: "Passionné de jeux vidéo et de mondes fantastiques.",
-        created_at: Date(),
-        role: .User
+        pays: .france,
+        description: "Alex explore depuis de longues années les frontières entre le folklore ancien et les récits d'anticipation moderne. Passionné par la préservation des légendes oubliées, il documente avec minutie les sanctuaires cachés et les créatures mythologiques qui peuplent nos imaginaires",
+        createdAt: Date(),
+        role: .user
     )
-
+    //-----------------------------------------------------
     static let maya = User(
         id: UUID(),
         email: "maya@imaginarium.app",
         pseudo: "Maya",
         password: "password",
         profilPicture: URL(string: "https://i.pravatar.cc/300?img=32")!,
-        pays: .France,
+        pays: .france,
         description: "Fan de cinéma, animation et univers imaginaires.",
-        created_at: Date(),
-        role: .User
+        createdAt: Date(),
+        role: .user
     )
 
     static let lucas = User(
@@ -38,10 +39,10 @@ struct MockData {
         pseudo: "Lucas",
         password: "password",
         profilPicture: URL(string: "https://i.pravatar.cc/300?img=12")!,
-        pays: .Espagne,
+        pays: .espagne,
         description: "Passionné de manga et de science-fiction.",
-        created_at: Date(),
-        role: .User
+        createdAt: Date(),
+        role: .user
     )
 
     static let sarah = User(
@@ -50,10 +51,10 @@ struct MockData {
         pseudo: "Sarah",
         password: "password",
         profilPicture: URL(string: "https://i.pravatar.cc/300?img=47")!,
-        pays: .Angleterre,
+        pays: .angleterre,
         description: "Passionnée de fantasy et de folklore.",
-        created_at: Date(),
-        role: .Moderateur
+        createdAt: Date(),
+        role: .moderateur
     )
 
     static let thomas = User(
@@ -62,10 +63,10 @@ struct MockData {
         pseudo: "Thomas",
         password: "password",
         profilPicture: URL(string: "https://i.pravatar.cc/300?img=15")!,
-        pays: .France,
+        pays: .france,
         description: "Fan de science-fiction et de Star Wars.",
-        created_at: Date(),
-        role: .Admin
+        createdAt: Date(),
+        role: .admin
     )
 
     static let nina = User(
@@ -74,10 +75,10 @@ struct MockData {
         pseudo: "Nina",
         password: "password",
         profilPicture: URL(string: "https://i.pravatar.cc/300?img=45")!,
-        pays: .Ecosse,
+        pays: .ecosse,
         description: "Passionnée de fantasy et de jeux Nintendo.",
-        created_at: Date(),
-        role: .User
+        createdAt: Date(),
+        role: .user
     )
 
     static let users: [User] = [
@@ -95,225 +96,356 @@ struct MockData {
 
     static let wikis: [Wiki] = [
 
-        Wiki(
-            title: "Toy Story",
-            subtitle: "Univers Pixar",
-            creator: maya,
-            imageName: URL(string: "https://picsum.photos/600/400?random=10")!,
-            description:
-                "Toy Story raconte les aventures de jouets qui prennent vie lorsque les humains ne les regardent pas.",
-            mediaImages: [
-                URL(string: "https://picsum.photos/600/400?random=11")!,
-                URL(string: "https://picsum.photos/600/400?random=12")!,
-                URL(string: "https://picsum.photos/600/400?random=13")!
-            ],
-            category: .Films,
-            created_at: Date(),
-            tags: [
-                "Pixar",
-                "Animation",
-                "Aventure"
-            ],
-            location: CLLocation(
-                latitude: 37.8324,
-                longitude: -122.2851
-            )
-        ),
+            Wiki(
+                title: "Toy Story",
+                subtitle: "Univers Pixar",
+                creator: maya,
+                imageName: URL(string: "https://picsum.photos/600/400?random=10")!,
+                description: "Toy Story raconte les aventures de jouets qui prennent vie lorsque les humains ne les regardent pas.",
+                category: .films,
+                createdAt: Date(),
+                tags: ["Pixar", "Animation", "Aventure"],
+                location: CLLocation(latitude: 37.8324, longitude: -122.2851),
+                homeSegment: HomeSegment(elements: [
+                    Element(elementName: "Studio", description: "Pixar Animation Studios"),
+                    Element(elementName: "Année de sortie", description: "1995")
+                ]),
+                gallerySegment: GallerySegment(gallery: [
+                    ImageGallerySegment(image: "https://picsum.photos/600/400?random=11"),
+                    ImageGallerySegment(image: "https://picsum.photos/600/400?random=12"),
+                    ImageGallerySegment(image: "https://picsum.photos/600/400?random=13")
+                ]),
+                descriptionSegment: DescriptionSegment(sections: [
+                    TextSection(
+                        title: "Résumé",
+                        contents: "Toy Story raconte les aventures de jouets qui prennent vie lorsque les humains ne les regardent pas."
+                    )
+                ]),
+                linksSegment: LinksSegment(links: [])
+            ),
 
-        Wiki(
-            title: "Star Wars",
-            subtitle: "Une galaxie lointaine",
-            creator: thomas,
-            imageName: URL(string: "https://picsum.photos/600/400?random=20")!,
-            description:
-                "Star Wars présente une galaxie peuplée de nombreuses civilisations, Jedi, Sith et créatures.",
-            mediaImages: [
-                URL(string: "https://picsum.photos/600/400?random=21")!,
-                URL(string: "https://picsum.photos/600/400?random=22")!
-            ],
-            category: .Films,
-            created_at: Date(),
-            tags: [
-                "Science-fiction",
-                "Espace",
-                "Jedi"
-            ],
-            location: CLLocation(
-                latitude: 36.4915,
-                longitude: -117.2283
-            )
-        ),
+            Wiki(
+                title: "Star Wars",
+                subtitle: "Une galaxie lointaine",
+                creator: thomas,
+                imageName: URL(string: "https://picsum.photos/600/400?random=20")!,
+                description: "Star Wars présente une galaxie peuplée de nombreuses civilisations, Jedi, Sith et créatures.",
+                category: .films,
+                createdAt: Date(),
+                tags: ["Science-fiction", "Espace", "Jedi"],
+                location: CLLocation(latitude: 36.4915, longitude: -117.2283),
+                homeSegment: HomeSegment(elements: [
+                    Element(elementName: "Créateur", description: "George Lucas"),
+                    Element(elementName: "Premier film", description: "1977")
+                ]),
+                gallerySegment: GallerySegment(gallery: [
+                    ImageGallerySegment(image: "https://picsum.photos/600/400?random=21"),
+                    ImageGallerySegment(image: "https://picsum.photos/600/400?random=22")
+                ]),
+                descriptionSegment: DescriptionSegment(sections: [
+                    TextSection(
+                        title: "Résumé",
+                        contents: "Star Wars présente une galaxie peuplée de nombreuses civilisations, Jedi, Sith et créatures."
+                    )
+                ]),
+                linksSegment: LinksSegment(links: [])
+            ),
 
-        Wiki(
-            title: "Harry Potter",
-            subtitle: "Le monde des sorciers",
-            creator: sarah,
-            imageName: URL(string: "https://picsum.photos/600/400?random=30")!,
-            description:
-                "Harry Potter raconte l'histoire d'un jeune sorcier découvrant un monde magique caché.",
-            mediaImages: [
-                URL(string: "https://picsum.photos/600/400?random=31")!,
-                URL(string: "https://picsum.photos/600/400?random=32")!
-            ],
-            category: .Livre,
-            created_at: Date(),
-            tags: [
-                "Magie",
-                "Fantasy",
-                "Sorciers"
-            ],
-            location: CLLocation(
-                latitude: 51.5319,
-                longitude: -0.1246
-            )
-        ),
+            Wiki(
+                title: "Harry Potter",
+                subtitle: "Le monde des sorciers",
+                creator: sarah,
+                imageName: URL(string: "https://picsum.photos/600/400?random=30")!,
+                description: "Harry Potter raconte l'histoire d'un jeune sorcier découvrant un monde magique caché.",
+                category: .livre,
+                createdAt: Date(),
+                tags: ["Magie", "Fantasy", "Sorciers"],
+                location: CLLocation(latitude: 51.5319, longitude: -0.1246),
+                homeSegment: HomeSegment(elements: [
+                    Element(elementName: "Auteur", description: "J.K. Rowling"),
+                    Element(elementName: "Nombre de tomes", description: "7")
+                ]),
+                gallerySegment: GallerySegment(gallery: [
+                    ImageGallerySegment(image: "https://picsum.photos/600/400?random=31"),
+                    ImageGallerySegment(image: "https://picsum.photos/600/400?random=32")
+                ]),
+                descriptionSegment: DescriptionSegment(sections: [
+                    TextSection(
+                        title: "Résumé",
+                        contents: "Harry Potter raconte l'histoire d'un jeune sorcier découvrant un monde magique caché."
+                    )
+                ]),
+                linksSegment: LinksSegment(links: [])
+            ),
 
-        Wiki(
-            title: "Dragon",
-            subtitle: "Créature légendaire",
-            creator: sarah,
-            imageName: URL(string: "https://picsum.photos/600/400?random=40")!,
-            description:
-                "Le dragon est une créature mythologique présente dans de nombreuses cultures et légendes.",
-            mediaImages: [
-                URL(string: "https://picsum.photos/600/400?random=41")!,
-                URL(string: "https://picsum.photos/600/400?random=42")!
-            ],
-            category: .Folklore,
-            created_at: Date(),
-            tags: [
-                "Dragon",
-                "Mythologie",
-                "Créature"
-            ],
-            location: CLLocation(
-                latitude: 45.8326,
-                longitude: 6.8652
-            )
-        ),
+            Wiki(
+                title: "Dragon",
+                subtitle: "Créature légendaire",
+                creator: sarah,
+                imageName: URL(string: "https://picsum.photos/600/400?random=40")!,
+                description: "Le dragon est une créature mythologique présente dans de nombreuses cultures et légendes.",
+                category: .folklore,
+                createdAt: Date(),
+                tags: ["Dragon", "Mythologie", "Créature"],
+                location: CLLocation(latitude: 45.8326, longitude: 6.8652),
+                homeSegment: HomeSegment(elements: [
+                    Element(elementName: "Origine", description: "Mythologies européenne et asiatique"),
+                    Element(elementName: "Symbolique", description: "Puissance et sagesse")
+                ]),
+                gallerySegment: GallerySegment(gallery: [
+                    ImageGallerySegment(image: "https://picsum.photos/600/400?random=41"),
+                    ImageGallerySegment(image: "https://picsum.photos/600/400?random=42")
+                ]),
+                descriptionSegment: DescriptionSegment(sections: [
+                    TextSection(
+                        title: "Résumé",
+                        contents: "Le dragon est une créature mythologique présente dans de nombreuses cultures et légendes."
+                    )
+                ]),
+                linksSegment: LinksSegment(links: [])
+            ),
+            Wiki(
+                        title: "Star Wars",
+                        subtitle: "Une galaxie lointaine",
+                        creator: alex, // <--- ICI : c'était "thomas" avant
+                        imageName: URL(string: "https://picsum.photos/600/400?random=20")!,
+                        description: "Star Wars présente une une créature mythologique présente dans de nombreuses cultures et légendes galaxie peuplée de nombreuses civilisations, Jedi, Sith et créatures. une créature mythologique présente dans de nombreuses cultures et légendes",
+                        category: .films,
+                        createdAt: Date(),
+                        tags: ["Science-fiction", "Espace", "Jedi"],
+                        location: CLLocation(latitude: 36.4915, longitude: -117.2283),
+                        homeSegment: HomeSegment(elements: [
+                            Element(elementName: "Créateur", description: "George Lucas"),
+                            Element(elementName: "Premier film", description: "1977")
+                        ]),
+                        gallerySegment: GallerySegment(gallery: [
+                            ImageGallerySegment(image: "https://picsum.photos/600/400?random=21"),
+                            ImageGallerySegment(image: "https://picsum.photos/600/400?random=22")
+                        ]),
+                        descriptionSegment: DescriptionSegment(sections: [
+                            TextSection(
+                                title: "Résumé",
+                                contents: "Star Wars présente une galaxie peuplée de nombreuses civilisations, Jedi, Sith et créatures."
+                            )
+                        ]),
+                        linksSegment: LinksSegment(links: [])
+                    ),
+            Wiki(
+                title: "Ghost in the Shell",
+                subtitle: "Univers cyberpunk",
+                creator: lucas,
+                imageName: URL(string: "https://picsum.photos/600/400?random=50")!,
+                description: "Ghost in the Shell explore une société futuriste où humains et technologies cybernétiques se confondent.",
+                category: .series,
+                createdAt: Date(),
+                tags: ["Cyberpunk", "Manga", "Technologie"],
+                location: CLLocation(latitude: 35.6762, longitude: 139.6503),
+                homeSegment: HomeSegment(elements: [
+                    Element(elementName: "Auteur", description: "Masamune Shirow"),
+                    Element(elementName: "Année", description: "1989")
+                ]),
+                gallerySegment: GallerySegment(gallery: [
+                    ImageGallerySegment(image: "https://picsum.photos/600/400?random=51"),
+                    ImageGallerySegment(image: "https://picsum.photos/600/400?random=52")
+                ]),
+                descriptionSegment: DescriptionSegment(sections: [
+                    TextSection(
+                        title: "Résumé",
+                        contents: "Ghost in the Shell explore une société futuriste où humains et technologies cybernétiques se confondent."
+                    )
+                ]),
+                linksSegment: LinksSegment(links: [])
+            ),
 
-        Wiki(
-            title: "Ghost in the Shell",
-            subtitle: "Univers cyberpunk",
-            creator: lucas,
-            imageName: URL(string: "https://picsum.photos/600/400?random=50")!,
-            description:
-                "Ghost in the Shell explore une société futuriste où humains et technologies cybernétiques se confondent.",
-            mediaImages: [
-                URL(string: "https://picsum.photos/600/400?random=51")!,
-                URL(string: "https://picsum.photos/600/400?random=52")!
-            ],
-            category: .Series,
-            created_at: Date(),
-            tags: [
-                "Cyberpunk",
-                "Manga",
-                "Technologie"
-            ],
-            location: CLLocation(
-                latitude: 35.6762,
-                longitude: 139.6503
+            Wiki(
+                title: "One Piece",
+                subtitle: "Le monde des pirates",
+                creator: lucas,
+                imageName: URL(string: "https://picsum.photos/600/400?random=60")!,
+                description: "One Piece suit Luffy et son équipage dans leur voyage à travers des océans remplis d'îles extraordinaires.",
+                category: .series,
+                createdAt: Date(),
+                tags: ["Manga", "Pirate", "Aventure"],
+                location: CLLocation(latitude: 35.6895, longitude: 139.6917),
+                homeSegment: HomeSegment(elements: [
+                    Element(elementName: "Auteur", description: "Eiichiro Oda"),
+                    Element(elementName: "Année", description: "1997")
+                ]),
+                gallerySegment: GallerySegment(gallery: [
+                    ImageGallerySegment(image: "https://picsum.photos/600/400?random=61"),
+                    ImageGallerySegment(image: "https://picsum.photos/600/400?random=62")
+                ]),
+                descriptionSegment: DescriptionSegment(sections: [
+                    TextSection(
+                        title: "Résumé",
+                        contents: "One Piece suit Luffy et son équipage dans leur voyage à travers des océans remplis d'îles extraordinaires."
+                    )
+                ]),
+                linksSegment: LinksSegment(links: [])
             )
-        ),
-
-        Wiki(
-            title: "One Piece",
-            subtitle: "Le monde des pirates",
-            creator: lucas,
-            imageName: URL(string: "https://picsum.photos/600/400?random=60")!,
-            description:
-                "One Piece suit Luffy et son équipage dans leur voyage à travers des océans remplis d'îles extraordinaires.",
-            mediaImages: [
-                URL(string: "https://picsum.photos/600/400?random=61")!,
-                URL(string: "https://picsum.photos/600/400?random=62")!
-            ],
-            category: .Series,
-            created_at: Date(),
-            tags: [
-                "Manga",
-                "Pirate",
-                "Aventure"
-            ],
-            location: CLLocation(
-                latitude: 35.6895,
-                longitude: 139.6917
-            )
-        )
-    ]
+        ]
 
     // =====================================================
     // MARK: - DISCUSSIONS
     // =====================================================
 
-    static let discussions: [Discussion] = [
+    static let topics: [Topic] = [
 
-        Discussion(
+        Topic(
+            subject: "Toy Story",
             title: "Votre personnage préféré de Toy Story ?",
             creator: maya,
             message: "Je préfère Woody, mais Buzz reste incroyable.",
-            imageName: "toyStory",
+            category: .Trending,
+            image: URL(string: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2qj3yKgSmlFwjOC3VNBSzKpofVb43UitFcIDrKIZAlg&s=10"),
             comments: [
                 Comment(
                     creator: alex,
                     message: "Buzz sans hésiter.",
-                    created_at: Date()
+                    createdAt: Date()
                 ),
                 Comment(
                     creator: nina,
                     message: "Jessie pour moi.",
-                    created_at: Date()
+                    createdAt: Date()
                 )
             ]
         ),
 
-        Discussion(
+        Topic(
+            subject: "Toy Story",
             title: "Quelle planète Star Wars visiter ?",
-            creator: thomas,
-            message: "Si vous pouviez visiter une planète de Star Wars, laquelle choisiriez-vous ?",
-            imageName: "starWars",
+            creator: alex,
+            message: "Star Wars présente une galaxie peuplée de nombreuses civilisations, Jedi, Sith et créatures. Si vous pouviez visiter une planète de Star Wars, laquelle choisiriez-vous ?",
+            category: .Favoris,
+            image: URL(string: "https://i.ytimg.com/vi/uBh8Sg8wOuA/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCgPil4po184W7q0_EpfJCs3GeAig"),
             comments: [
                 Comment(
                     creator: sarah,
-                    message: "Naboo.",
-                    created_at: Date()
+                    message: "Star Wars présente une galaxie peuplée de nombreuses civilisations, Jedi, Sith et créatures",
+                    createdAt: Date()
                 ),
                 Comment(
                     creator: lucas,
                     message: "Coruscant.",
-                    created_at: Date()
+                    createdAt: Date()
                 )
             ]
         ),
 
-        Discussion(
+        Topic(
+            subject: "Folklore",
             title: "Vos créatures fantastiques préférées ?",
             creator: sarah,
             message: "Dragon, phénix, licorne... laquelle préférez-vous ?",
-            imageName: "dragon",
+            category: .Favoris,
+            image: URL(string: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAeguHb0-8sN-ldntFlHWjuSDg2IJaD9T4CRtogd8z7w&s=10" ) ,
             comments: [
                 Comment(
                     creator: maya,
                     message: "Le phénix !",
-                    created_at: Date()
+                    createdAt: Date()
                 ),
                 Comment(
                     creator: alex,
                     message: "Dragon évidemment.",
-                    created_at: Date()
+                    createdAt : Date()
+                )
+            ]
+        ),
+        Topic(
+            subject: "Folklore",
+            title: "Vos créatures fantastiques préférées ?",
+            creator: sarah,
+            message: "Dragon, phénix, licorne... laquelle préférez-vous ?",
+            category: .Favoris,
+            image: URL(string: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHIn6woW_c3SIS3ZbCzm7F4v9XCLUeMTIQZz1ZcNMB_g&s=10" ) ,
+            comments: [
+                Comment(
+                    creator: maya,
+                    message: "Le phénix !",
+                    createdAt: Date()
+                ),
+                Comment(
+                    creator: alex,
+                    message: "Dragon évidemment.",
+                    createdAt: Date()
+                )
+            ]
+        ),
+        Topic(
+            subject: "Folklore",
+            title: "Vos créatures fantastiques préférées ?",
+            creator: sarah,
+            message: "Dragon, phénix, licorne... laquelle préférez-vous ?",
+            category: .Trending,
+            image: URL(string: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVn8e_WKitHCTkGCSi8_WeqWFr8LlXZSAqEYSHcp_KQQ&s=10" ) ,
+            comments: [
+                Comment(
+                    creator: maya,
+                    message: "Le phénix !",
+                    createdAt: Date()
+                ),
+                Comment(
+                    creator: alex,
+                    message: "Dragon évidemment.",
+                    createdAt : Date()
+                )
+            ]
+        ),
+        Topic(
+            subject: "Folklore",
+            title: "Vos créatures fantastiques préférées ?",
+            creator: sarah,
+            message: "Dragon, phénix, licorne... laquelle préférez-vous ?",
+            category: .Trending,
+            image: URL(string: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2qj3yKgSmlFwjOC3VNBSzKpofVb43UitFcIDrKIZAlg&s=10" ) ,
+            comments: [
+                Comment(
+                    creator: maya,
+                    message: "Le phénix !",
+                    createdAt: Date()
+                ),
+                Comment(
+                    creator: alex,
+                    message: "Dragon évidemment.",
+                    createdAt: Date()
+                )
+            ]
+        ),
+        Topic(
+            subject: "Folklore",
+            title: "Vos créatures fantastiques préférées ?",
+            creator: sarah,
+            message: "Dragon, phénix, licorne... laquelle préférez-vous ?",
+            category: .Decouvrir,
+            image: URL(string: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2qj3yKgSmlFwjOC3VNBSzKpofVb43UitFcIDrKIZAlg&s=10" ) ,
+            comments: [
+                Comment(
+                    creator: maya,
+                    message: "Le phénix !",
+                    createdAt: Date()
+                ),
+                Comment(
+                    creator: alex,
+                    message: "Dragon évidemment.",
+                    createdAt: Date()
                 )
             ]
         ),
 
-        Discussion(
-            title: "One Piece : votre arc préféré ?",
+        Topic(
+            subject: "One Piece",
+            title: "Votre arc préféré ?",
             creator: lucas,
             message: "Quel est votre arc narratif préféré dans One Piece ?",
-            imageName: "onePiece",
+            category: .Decouvrir,
+            image: URL(string: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2qj3yKgSmlFwjOC3VNBSzKpofVb43UitFcIDrKIZAlg&s=10"),
             comments: [
                 Comment(
                     creator: nina,
                     message: "Marineford.",
-                    created_at: Date()
+                    createdAt: Date()
                 )
             ]
         )
@@ -327,7 +459,7 @@ struct MockData {
 
         Event(
             creator: thomas,
-            created_at: Date(),
+            createdAt: Date(),
             title: "Soirée Star Wars",
             description:
                 "Rencontre communautaire autour des films et personnages de Star Wars.",
@@ -337,7 +469,7 @@ struct MockData {
 
         Event(
             creator: maya,
-            created_at: Date(),
+            createdAt: Date(),
             title: "Rencontre Pixar",
             description:
                 "Échange autour de Toy Story et des différents univers Pixar.",
@@ -347,7 +479,7 @@ struct MockData {
 
         Event(
             creator: sarah,
-            created_at: Date(),
+            createdAt: Date(),
             title: "Soirée folklore et légendes",
             description:
                 "Discussion sur les dragons et autres créatures mythologiques.",
@@ -357,7 +489,7 @@ struct MockData {
 
         Event(
             creator: lucas,
-            created_at: Date(),
+            createdAt: Date(),
             title: "Découverte manga",
             description:
                 "Rencontre dédiée à One Piece, Ghost in the Shell et aux univers japonais.",
@@ -376,7 +508,7 @@ struct MockData {
         wikis[2]
     ]
 
-    static let trendingWikis: [Wiki] = [
+    static let trendinngWikis: [Wiki] = [
         wikis[3],
         wikis[4],
         wikis[5]

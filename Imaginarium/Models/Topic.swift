@@ -1,14 +1,26 @@
 import Foundation
 
 /// Représente une discussion créée dans l'espace communautaire.
-struct Discussion: Identifiable {
+
+enum TopicCategory :String,Hashable, CaseIterable {
+    case Favoris
+    case Trending
+    case Decouvrir
+
+}
+
+struct Topic:Hashable, Identifiable {
     let id = UUID()
     /// Sujet de la discussion.
-    let title: String
+    var subject: String
+    var title: String
     var creator: User
-    let message: String
+    var message: String?
+    var category : TopicCategory
     /// Image facultative associée à la publication.
-    let imageName: String?
+    var image: URL?
     /// Réponses des autres utilisateurs.
-    let comments: [Comment]
+    var comments: [Comment]
 }
+
+
