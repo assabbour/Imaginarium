@@ -86,6 +86,7 @@ struct MapView: View {
                         }
                     }
                 }
+                .animation(.easeInOut)
         })
     }
 }
