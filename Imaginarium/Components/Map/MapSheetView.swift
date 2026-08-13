@@ -31,13 +31,17 @@ struct MapSheetView: View {
                             .allowsHitTesting(false)
                         }
                     }
+                    .padding(.horizontal)
             }
-            Text(wiki.description)
-                .foregroundStyle(.white)
-                .padding(.bottom, 5)
-                .font(.default)
-                .padding(.horizontal, 16)
-                .padding(.top)
+            .scrollIndicators(.hidden)
+            ScrollView {
+                Text(wiki.description)
+                    .foregroundStyle(.white)
+                    .padding(.bottom, 5)
+                    .font(.default)
+                    .padding(.horizontal, 16)
+                    .padding(.top)
+            }
         }
     }
 }
