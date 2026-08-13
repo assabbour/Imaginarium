@@ -291,165 +291,146 @@ struct MockData {
 
     static let topics: [Topic] = [
 
-        Topic(
-            subject: "Toy Story",
-            title: "Votre personnage préféré de Toy Story ?",
-            creator: maya,
-            message: "Je préfère Woody, mais Buzz reste incroyable.",
-            category: .Trending,
-            image: URL(string: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2qj3yKgSmlFwjOC3VNBSzKpofVb43UitFcIDrKIZAlg&s=10"),
-            comments: [
-                Comment(
-                    creator: alex,
-                    message: "Buzz sans hésiter.",
-                    createdAt: Date()
-                ),
-                Comment(
-                    creator: nina,
-                    message: "Jessie pour moi.",
-                    createdAt: Date()
-                )
-            ]
-        ),
+            // MARK: - Odyssée (image déjà présente, mal assignée avant)
+            Topic(
+                subject: "Odyssée",
+                title: "Le nouveau film de Nolan est trop bien",
+                creator: alex,
+                message: "La bande-annonce de L'Odyssée vient de sortir et l'ambiance mythologique semble dingue. Entre l'échelle de production et le casting, est-ce que ça vous donne envie ou vous restez sceptiques après Oppenheimer ?",
+                category: .Trending,
+                image: URL(string: "https://i.ytimg.com/vi/uBh8Sg8wOuA/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCgPil4po184W7q0_EpfJCs3GeAig"),
+                comments: [
+                    Comment(creator: sarah, message: "L'échelle IMAX 70mm annoncée me fait déjà rêver.", createdAt: Date()),
+                    Comment(creator: lucas, message: "J'attends de voir le casting complet avant de m'emballer.", createdAt: Date())
+                ]
+            ),
 
-        Topic(
-            subject: "Toy Story",
-            title: "Quelle planète Star Wars visiter ?",
-            creator: alex,
-            message: "Star Wars présente une galaxie peuplée de nombreuses civilisations, Jedi, Sith et créatures. Si vous pouviez visiter une planète de Star Wars, laquelle choisiriez-vous ?",
-            category: .Favoris,
-            image: URL(string: "https://i.ytimg.com/vi/uBh8Sg8wOuA/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCgPil4po184W7q0_EpfJCs3GeAig"),
-            comments: [
-                Comment(
-                    creator: sarah,
-                    message: "Star Wars présente une galaxie peuplée de nombreuses civilisations, Jedi, Sith et créatures",
-                    createdAt: Date()
-                ),
-                Comment(
-                    creator: lucas,
-                    message: "Coruscant.",
-                    createdAt: Date()
-                )
-            ]
-        ),
+            // MARK: - Ghost in the Shell (image déjà présente, mal assignée avant)
+            Topic(
+                subject: "Ghost in the Shell",
+                title: "Motoko Kusanagi, l'héroïne cyberpunk ultime ?",
+                creator: sarah,
+                message: "Entre les questionnements sur l'identité, la conscience et le corps augmenté, Ghost in the Shell reste une référence absolue du cyberpunk. Trente ans après, est-ce que le film a encore quelque chose à dire sur notre rapport à la technologie, ou est-ce qu'il a été dépassé par des œuvres plus récentes ?",
+                category: .Favoris,
+                image: URL(string: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAeguHb0-8sN-ldntFlHWjuSDg2IJaD9T4CRtogd8z7w&s=10"),
+                comments: [
+                    Comment(creator: maya, message: "Toujours aussi pertinent, surtout avec l'IA aujourd'hui.", createdAt: Date()),
+                    Comment(creator: nina, message: "L'animation de Oshii n'a pas pris une ride visuellement.", createdAt: Date())
+                ]
+            ),
 
-        Topic(
-            subject: "Folklore",
-            title: "Vos créatures fantastiques préférées ?",
-            creator: sarah,
-            message: "Dragon, phénix, licorne... laquelle préférez-vous ?",
-            category: .Favoris,
-            image: URL(string: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAeguHb0-8sN-ldntFlHWjuSDg2IJaD9T4CRtogd8z7w&s=10" ) ,
-            comments: [
-                Comment(
-                    creator: maya,
-                    message: "Le phénix !",
-                    createdAt: Date()
-                ),
-                Comment(
-                    creator: alex,
-                    message: "Dragon évidemment.",
-                    createdAt : Date()
-                )
-            ]
-        ),
-        Topic(
-            subject: "Folklore",
-            title: "Vos créatures fantastiques préférées ?",
-            creator: sarah,
-            message: "Dragon, phénix, licorne... laquelle préférez-vous ?",
-            category: .Favoris,
-            image: URL(string: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHIn6woW_c3SIS3ZbCzm7F4v9XCLUeMTIQZz1ZcNMB_g&s=10" ) ,
-            comments: [
-                Comment(
-                    creator: maya,
-                    message: "Le phénix !",
-                    createdAt: Date()
-                ),
-                Comment(
-                    creator: alex,
-                    message: "Dragon évidemment.",
-                    createdAt: Date()
-                )
-            ]
-        ),
-        Topic(
-            subject: "Folklore",
-            title: "Vos créatures fantastiques préférées ?",
-            creator: sarah,
-            message: "Dragon, phénix, licorne... laquelle préférez-vous ?",
-            category: .Trending,
-            image: URL(string: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVn8e_WKitHCTkGCSi8_WeqWFr8LlXZSAqEYSHcp_KQQ&s=10" ) ,
-            comments: [
-                Comment(
-                    creator: maya,
-                    message: "Le phénix !",
-                    createdAt: Date()
-                ),
-                Comment(
-                    creator: alex,
-                    message: "Dragon évidemment.",
-                    createdAt : Date()
-                )
-            ]
-        ),
-        Topic(
-            subject: "Folklore",
-            title: "Vos créatures fantastiques préférées ?",
-            creator: sarah,
-            message: "Dragon, phénix, licorne... laquelle préférez-vous ?",
-            category: .Trending,
-            image: URL(string: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2qj3yKgSmlFwjOC3VNBSzKpofVb43UitFcIDrKIZAlg&s=10" ) ,
-            comments: [
-                Comment(
-                    creator: maya,
-                    message: "Le phénix !",
-                    createdAt: Date()
-                ),
-                Comment(
-                    creator: alex,
-                    message: "Dragon évidemment.",
-                    createdAt: Date()
-                )
-            ]
-        ),
-        Topic(
-            subject: "Folklore",
-            title: "Vos créatures fantastiques préférées ?",
-            creator: sarah,
-            message: "Dragon, phénix, licorne... laquelle préférez-vous ?",
-            category: .Decouvrir,
-            image: URL(string: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2qj3yKgSmlFwjOC3VNBSzKpofVb43UitFcIDrKIZAlg&s=10" ) ,
-            comments: [
-                Comment(
-                    creator: maya,
-                    message: "Le phénix !",
-                    createdAt: Date()
-                ),
-                Comment(
-                    creator: alex,
-                    message: "Dragon évidemment.",
-                    createdAt: Date()
-                )
-            ]
-        ),
+            // MARK: - Monster Hunter (image déjà présente, mal assignée avant)
+            Topic(
+                subject: "Monster Hunter",
+                title: "Rey Dau, le combat le plus stylé du jeu ?",
+                creator: lucas,
+                message: "Rey Dau franchement... wow le monstre. Entre les décharges électriques qu'il balance sur toute la carte et son design de dragon-oiseau, c'est clairement un des affrontements les plus marquants de Wilds. Vous l'avez chassé en combien de temps ?",
+                category: .Trending,
+                image: URL(string: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2qj3yKgSmlFwjOC3VNBSzKpofVb43UitFcIDrKIZAlg&s=10"),
+                comments: [
+                    Comment(creator: alex, message: "L'électricité qui court sur toute la zone, c'est génial.", createdAt: Date()),
+                    Comment(creator: sarah, message: "Une des meilleures intros de monstre de la série pour moi.", createdAt: Date())
+                ]
+            ),
 
-        Topic(
-            subject: "One Piece",
-            title: "Votre arc préféré ?",
-            creator: lucas,
-            message: "Quel est votre arc narratif préféré dans One Piece ?",
-            category: .Decouvrir,
-            image: URL(string: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2qj3yKgSmlFwjOC3VNBSzKpofVb43UitFcIDrKIZAlg&s=10"),
-            comments: [
-                Comment(
-                    creator: nina,
-                    message: "Marineford.",
-                    createdAt: Date()
-                )
-            ]
-        )
-    ]
+            // MARK: - Folklore (générique, dragons)
+            Topic(
+                subject: "Folklore",
+                title: "Dragons : gardiens ou monstres ?",
+                creator: sarah,
+                message: "Dans les légendes du monde entier, le dragon n'a pas toujours le même rôle : protecteur de trésors et de sagesse en Orient, incarnation de la destruction en Occident. Selon vous, quelle version du dragon est la plus fidèle à l'idée qu'on s'en fait aujourd'hui ?",
+                category: .Favoris,
+                image: URL(string: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqMoMxfS050m8RJpdYRFmqygMO-IX585BCyAmAc41T4w&s=10"), // TODO: remplacer par une vraie image
+                comments: [
+                    Comment(creator: maya, message: "Gardien, sans hésiter, la version orientale est plus riche.", createdAt: Date()),
+                    Comment(creator: alex, message: "Dragon destructeur évidemment, plus impressionnant à l'écran.", createdAt: Date())
+                ]
+            ),
+
+            // MARK: - Le Seigneur des Anneaux
+            Topic(
+                subject: "Le Seigneur des Anneaux",
+                title: "Quel personnage de la Terre du Milieu incarnez-vous ?",
+                creator: alex,
+                message: "Entre le courage d'Aragorn, la sagesse de Gandalf, la loyauté de Sam ou la résilience de Frodon, chaque personnage porte une valeur différente. Si vous deviez incarner l'un d'eux dans votre quotidien, lequel choisiriez-vous et pourquoi ?",
+                category: .Favoris,
+                image: URL(string: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBzb_TzezG6KhwazNLCoyCcpc2scWLPcnG_rfNvmAjKA&s=10"), // TODO: remplacer par une vraie image
+                comments: [
+                    Comment(creator: sarah, message: "Gandalf, pour la sagesse et le sens du sacrifice.", createdAt: Date()),
+                    Comment(creator: nina, message: "Sam, le vrai héros discret de l'histoire.", createdAt: Date())
+                ]
+            ),
+
+            // MARK: - Avatar
+            Topic(
+                subject: "Avatar",
+                title: "Pandora vous fascine-t-elle autant que nous ?",
+                creator: maya,
+                message: "Entre la bioluminescence de la forêt la nuit, le lien spirituel des Na'vis avec Eywa et le vol sur les Ikrans, le monde de Pandora reste l'un des univers les plus immersifs jamais créés au cinéma. Qu'est-ce qui vous marque le plus dans cet univers ?",
+                category: .Decouvrir,
+                image: URL(string: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbrIrHHLbvzpwcI6zLzeGKQ8BdowpnDuDKPamNnAUW8Q&s=10"), // TODO: remplacer par une vraie image
+                comments: [
+                    Comment(creator: lucas, message: "Voler sur un Ikran, ça reste un rêve absolu.", createdAt: Date()),
+                    Comment(creator: alex, message: "La forêt bioluminescente la nuit, c'est juste magnifique.", createdAt: Date())
+                ]
+            ),
+
+            // MARK: - Harry Potter
+            Topic(
+                subject: "Harry Potter",
+                title: "Quelle maison de Poudlard vous correspond vraiment ?",
+                creator: nina,
+                message: "Gryffondor pour le courage, Serpentard pour l'ambition, Serdaigle pour l'intelligence, Poufsouffle pour la loyauté... Le Choixpeau vous a-t-il déjà surpris, ou avez-vous toujours su dans quelle maison vous vous reconnaissiez ?",
+                category: .Trending,
+                image: URL(string: "https://www.jolie-bobine.fr/wp-content/uploads/2022/06/Hogwarts-Houses-1.jpg"), // TODO: remplacer par une vraie image
+                comments: [
+                    Comment(creator: maya, message: "Serdaigle, sans hésitation, j'assume à fond.", createdAt: Date()),
+                    Comment(creator: lucas, message: "Gryffondor, même si je suis loin d'être courageux au quotidien.", createdAt: Date())
+                ]
+            ),
+
+            // MARK: - Zelda
+            Topic(
+                subject: "Zelda",
+                title: "Quelle région d'Hyrule exploreriez-vous en premier ?",
+                creator: sarah,
+                message: "Entre les plaines paisibles d'Hyrule, le désert brûlant de Gerudo et les sommets glacés de Death Mountain, chaque région a son ambiance propre. Si vous débarquiez à Hyrule aujourd'hui, où poseriez-vous le pied en premier ?",
+                category: .Trending,
+                image: URL(string: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQRXm1Y1Dk1-VIud9t0aUG8H3JwkaNFacECpN6a6sYLQ&s=10"), // TODO: remplacer par une vraie image
+                comments: [
+                    Comment(creator: maya, message: "Le désert Gerudo, pour l'ambiance et l'architecture.", createdAt: Date()),
+                    Comment(creator: nina, message: "Les plaines d'Hyrule, tellement paisibles au lever du soleil.", createdAt: Date())
+                ]
+            ),
+
+            // MARK: - One Piece
+            Topic(
+                subject: "One Piece",
+                title: "Votre arc préféré ?",
+                creator: lucas,
+                message: "Marineford, Wano, Dressrosa... One Piece a enchaîné les arcs légendaires depuis plus de vingt ans. Lequel vous a le plus marqué émotionnellement, et lequel referiez-vous sans hésiter ?",
+                category: .Decouvrir,
+                image: URL(string: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkKAWqp4jTvySTcD9nw3KHUV_C5O4bLU85pHkjz-Nxng&s=10"), // TODO: remplacer par une vraie image
+                comments: [
+                    Comment(creator: nina, message: "Marineford, la mort d'Ace m'a détruit.", createdAt: Date()),
+                    Comment(creator: alex, message: "Wano pour moi, l'ambiance et les combats sont incroyables.", createdAt: Date())
+                ]
+            ),
+
+            // MARK: - Dragons (film Dreamworks)
+            Topic(
+                subject: "Dragons",
+                title: "Croc-Blanc ou Krokmou, votre dragon préféré ?",
+                creator: maya,
+                message: "Le film Dragons a réussi à rendre ces créatures aussi attachantes qu'un compagnon fidèle plutôt que des monstres à abattre. Entre Krokmou le furie nocturne et les autres dragons de l'île de Beurk, lequel choisiriez-vous comme compagnon de vol ?",
+                category: .Favoris,
+                image: URL(string: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQA2r7qXYzabdm9ChukAwqbHy6LOQOBoCFQrfDNLaSNeQ&s=10"), // TODO: remplacer par une vraie image
+                comments: [
+                    Comment(creator: sarah, message: "Krokmou évidemment, la relation avec Harold est trop belle.", createdAt: Date()),
+                    Comment(creator: lucas, message: "J'adore le design du Terreur Terrible, plus discret.", createdAt: Date())
+                ]
+            )
+        ]
 
     // =====================================================
     // MARK: - EVENTS
