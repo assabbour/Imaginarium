@@ -94,6 +94,7 @@ struct WikiCreationFormView: View {
                             VStack(alignment: .leading, spacing: 4) {
                                 ForEach(viewModel.errorMessages, id: \.self) { message in
                                     Text(message)
+                                        .foregroundStyle(.white)
                                 }
                             }
                             .padding(.horizontal)

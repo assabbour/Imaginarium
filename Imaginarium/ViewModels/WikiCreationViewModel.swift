@@ -34,7 +34,7 @@ class WikiCreationViewModel {
     
     
 //------------------- Validation du wiki ------------------------
-    var errorMessages: [String] = [] // recup les erreur pour afficher les messages a la fin de la fonction
+    var errorMessages: [String] = [] 
     var latitudeText: String = ""
     var longitudeText: String = ""
     var imgTextToURL: String = ""
