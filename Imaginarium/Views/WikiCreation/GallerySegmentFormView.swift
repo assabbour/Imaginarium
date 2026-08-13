@@ -17,11 +17,9 @@ struct GallerySegmentFormView: View {
         @Bindable var viewModel = wikiCreationViewModel
         
         ZStack {
-//            BackgroundGradient()
-//                .ignoresSafeArea()
             
             Form {
-                Section("Nouvelle image") {
+                Section(header:Text("Nouvelle image").foregroundStyle(.white)) {
                     TextField("URL de l'image", text: $newImageURL)
                     
                     Button("Ajouter") {
@@ -29,9 +27,15 @@ struct GallerySegmentFormView: View {
                         newImageURL = ""
                     }
                     .disabled(newImageURL.trimmingCharacters(in: .whitespaces).isEmpty)
+                    .foregroundStyle(.black)
+                    .fontWeight(.bold)
+                    .padding(12)
+                    .background(.accentExtraLight)
+                    .cornerRadius(24)
+                    .frame(maxWidth: .infinity)
                 }
                 
-                Section("Images ajoutées") {
+                Section(header:Text("Images ajoutées").foregroundStyle(.white)) {
                     ForEach(viewModel.wiki.gallerySegment?.gallery ?? []) { item in
                         HStack {
                             AsyncImage(url: URL(string: item.image)) { image in
