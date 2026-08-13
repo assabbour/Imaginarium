@@ -59,6 +59,57 @@ class TopicViewModel {
             }
         }
     }
+    
+    var errorMessages: [String] = []
+        var message: String = ""
+        var imgTextToURL: String = ""
+        
+        func validateTopic() -> Bool {
+            errorMessages = []
+            
+            if topic.title.trimmingCharacters(in: .whitespaces).isEmpty {
+                errorMessages.append("Le titre est obligatoire")
+            }
+            
+            if topic.subject.trimmingCharacters(in: .whitespaces).isEmpty {
+                errorMessages.append("Le sujet est obligatoire")
+            }
+            
+            if message.trimmingCharacters(in: .whitespaces).isEmpty {
+                errorMessages.append("Le message est obligatoire")
+            }
+            
+            var imageURL: URL? = nil
+            if !imgTextToURL.isEmpty {
+                if let url = URL(string: imgTextToURL) {
+                    imageURL = url
+                } else {
+                    errorMessages.append("L'URL de l'image n'est pas valide")
+                }
+            }
+            
+            guard errorMessages.isEmpty else {
+                return false
+            }
+            
+            topic.message = message
+            if let imageURL {
+                topic.image = imageURL
+            }
+            return true
+        }
+        
+        func createTopic() -> Bool {
+            guard validateTopic() else {
+                return false
+            }
+            
+            copy.append(topic)
+            return true
+        }
+    
+    
+    
     // ajout histoire de
     var displayedCategories: [TopicCategory] {
         if let category = isCategorySelected {
@@ -67,5 +118,6 @@ class TopicViewModel {
             return TopicCategory.allCases
         }
     }
-    var message: String = ""
+
 }
+
