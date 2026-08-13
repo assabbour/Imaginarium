@@ -13,9 +13,9 @@ class TopicViewModel {
     var copy = MockData.topics
     var isCategorySelected: TopicCategory? = nil
     
-// Porprietes d'un Topic
+    // Porprietes d'un Topic
     
-
+    
     var topic: Topic = Topic(
         subject: "",
         title: "",
@@ -46,8 +46,8 @@ class TopicViewModel {
             return copy[index].comments.append(newComment)
         }
     }
-        
-// Validation du TopicForm
+    
+    // Validation du TopicForm
     
     func filterTopicSearchBar(_ searchText: String, categorySelected: TopicCategory) -> [Topic] {
         if searchText.isEmpty {

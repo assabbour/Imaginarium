@@ -8,13 +8,27 @@
 import SwiftUI
 
 struct MapSheetView: View {
+    
     let wiki: Wiki
+    @Binding var isSheetPresentedDetail: Bool
+    
     var body: some View {
         VStack(alignment: .leading) {
-            Text(wiki.title)
-                .foregroundStyle(.white)
-                .font(.title)
-                .padding()
+            HStack {
+                Text(wiki.title)
+                    .foregroundStyle(.white)
+                    .font(.title)
+                    .padding()
+                Spacer()
+                AsyncImage(url: wiki.imageName)
+                    .frame(maxWidth: 50,maxHeight: 50)
+                    .scaledToFit()
+                    .clipShape(.circle)
+                    .onTapGesture {
+                        isSheetPresentedDetail = true
+                    }
+                    .padding()
+            }
             ScrollView(.horizontal) {
                     HStack {
                         ForEach(wiki.gallerySegment?.gallery ?? [], id:\.self) { image in
@@ -31,17 +45,21 @@ struct MapSheetView: View {
                             .allowsHitTesting(false)
                         }
                     }
+                    .padding(.horizontal)
             }
-            Text(wiki.description)
-                .foregroundStyle(.white)
-                .padding(.bottom, 5)
-                .font(.default)
-                .padding(.horizontal, 16)
-                .padding(.top)
+            .scrollIndicators(.hidden)
+            ScrollView {
+                Text(wiki.description)
+                    .foregroundStyle(.white)
+                    .padding(.bottom, 5)
+                    .font(.default)
+                    .padding(.horizontal, 16)
+                    .padding(.top)
+            }
         }
     }
 }
 
-#Preview {
-    MapSheetView(wiki: MockData.wikis[0])
-}
+//#Preview {
+//    MapSheetView(wiki: MockData.wikis[0])
+//}
