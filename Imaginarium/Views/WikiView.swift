@@ -21,21 +21,7 @@ struct WikiView: View {
                     .ignoresSafeArea()
                 
                 VStack(spacing: 16) {
-                    
-//                    HStack {
-//                        Text("Imaginarium")
-//                            .font(.system(size: 28, weight: .bold))
-//                            .foregroundColor(.white)
-//                        
-//                        Spacer()
-//                        CategorySelectionView()
-//                    }
-//                    .padding(.leading)
-//                    .padding(.top, 8)
-//                
-//                    SearchBarView(text: $searchText, placeholder: "Search")
-//                        .padding(.horizontal)
-                    SharedHeaderView(searchText: $searchText, title: "Imaginarium")
+                    SharedHeaderView(searchText: $searchText, title: "Imaginopedia")
                     ScrollView(showsIndicators: false) {
                         LazyVStack(spacing: 18) {
                             ForEach(sharedViewModel.filterWikis(searchText, selected: sharedViewModel.selectedCategory)) { wiki in

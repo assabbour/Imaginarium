@@ -13,14 +13,12 @@ struct TabBarView: View {
     
     var body: some View {
         TabView {
-            Tab("Imaginarium", systemImage: "book.fill") {
-                WikiView()
-            }
-            
-            Tab("Carte", systemImage: "map.fill") {
+            Tab("Imaginarium", systemImage: "safari.fill") {
                 MapView()
             }
-            
+            Tab("Imaginopedia", systemImage: "book.fill") {
+                WikiView()
+            }
             Tab("Communauté", systemImage: "bubble") {
                 TopicHubView()
             }

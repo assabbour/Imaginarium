@@ -36,10 +36,9 @@ struct MapSheetView: View {
                 .foregroundStyle(.white)
                 .padding(.bottom, 5)
                 .font(.default)
-                .padding(.horizontal, 8)
+                .padding(.horizontal, 16)
                 .padding(.top)
         }
-        .padding(.horizontal, 8)
     }
 }
 

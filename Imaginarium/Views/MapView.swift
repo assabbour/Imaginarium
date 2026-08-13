@@ -35,16 +35,8 @@ struct MapView: View {
                     }
                 }
 //                .colorScheme(.dark)
-//                VStack {
-//                    CategorySelectionView()
-//                        .padding(.horizontal, 18)
-//                        .padding(.top, 8)
-//                        .padding(.bottom, 5+5)
-//                    UIKitSearchBarView(text: $searchText)
-//                    Spacer()
-//                }
                 VStack {
-                    SharedHeaderView(searchText: $searchText, title: "")
+                    SharedHeaderView(searchText: $searchText, title: "Imaginarium")
                     Spacer()
                 }
                 
