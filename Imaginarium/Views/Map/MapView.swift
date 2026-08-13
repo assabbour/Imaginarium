@@ -10,54 +10,53 @@ import UIKit
 import MapKit
 
 struct MapView: View {
-   
+    
     @Environment(SharedWikiViewModel.self) var sharedViewModel
     
     @State private var searchText: String = ""
     @State var isSheetPresented: Bool = false
+    @State var isSheetPresentedDetail: Bool = false
     @State var passWikiToSheet: Wiki = MockData.wikis[0] // default data, we never see it
     @State var itemPosition: MapCameraPosition? = nil
     /*
-    func mapCameraPosition() {
-        if isSheetPresented {
-            .constant(.region(MKCoordinateRegion(center: itemPosition, span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05))))
-            
-        } else {
-            .constant(.automatic)}
-    }
-    
-    Map(initialPosition: .region(MKCoordinateRegion(center: regions.coordonneeGPS, span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05))))
-    */
+     func mapCameraPosition() {
+     if isSheetPresented {
+     .constant(.region(MKCoordinateRegion(center: itemPosition, span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05))))
+     
+     } else {
+     .constant(.automatic)}
+     }
+     
+     Map(initialPosition: .region(MKCoordinateRegion(center: regions.coordonneeGPS, span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05))))
+     */
     var body: some View {
         NavigationStack() {
             ZStack {
                 Map(position:
                         .constant(.automatic)
                     ,interactionModes: [.pan, .zoom]) {
-                    
                     ForEach(sharedViewModel.filterWikis(searchText, selected: sharedViewModel.selectedCategory)) { item in
-                            Annotation(item.title, coordinate: item.location.coordinate, anchor: .center) {
-                                Button {
-//                                    itemPosition = MapCameraPosition
-                                    passWikiToSheet = item
-                                    isSheetPresented.toggle()
-                                } label : {
-                                    MapAnnotationView(wiki: item)
-                                }
+                        Annotation(item.title, coordinate: item.location.coordinate, anchor: .center) {
+                            Button {
+                                passWikiToSheet = item
+                                isSheetPresented = true
+                            } label : {
+                                MapAnnotationView(wiki: item)
                             }
-                            .annotationTitles(.hidden)
+                        }
+                        .annotationTitles(.hidden)
                     }
                 }
-                .mapStyle(
-                            .hybrid(
-                                elevation: .realistic,
-                                pointsOfInterest: .all,
-                                showsTraffic: true
-                            )
+                    .mapStyle(
+                        .hybrid(
+                            elevation: .realistic,
+                            pointsOfInterest: .all,
+                            showsTraffic: true
                         )
-//                .onChange(of: isSheetPresented) {
-//                    MapCamera(centerCoordinate: itemPosition ?? .Marseille, distance: 1)
-//                }
+                    )
+                //                .onChange(of: isSheetPresented) {
+                //                    MapCamera(centerCoordinate: itemPosition ?? .Marseille, distance: 1)
+                //                }
                 
                 VStack {
                     SharedHeaderView(searchText: $searchText, title: "Imaginarium")
@@ -71,10 +70,22 @@ struct MapView: View {
         .toolbar(content: {
             CategorySelectionView()
         })
-        .sheet(isPresented: $isSheetPresented, content: {
-            MapSheetView(wiki: passWikiToSheet)
-                .presentationDetents([.medium])
-            .presentationBackground(.backgroundDarkBlue.opacity(0.6))
+        .sheet(isPresented: $isSheetPresented, onDismiss: {isSheetPresented = false; isSheetPresentedDetail = false} , content: {
+            MapSheetView(wiki: passWikiToSheet, isSheetPresentedDetail: $isSheetPresentedDetail)
+                .presentationDetents([isSheetPresentedDetail ? .large : .medium])
+                .presentationBackground(.backgroundDarkBlue.opacity(0.6))
+                .overlay {
+                    if isSheetPresentedDetail {
+                        ZStack(alignment: .top) {
+                            WikiDetailView(wiki: passWikiToSheet)
+                            Rectangle()
+                                .frame(width: 60, height: 5)
+                                .foregroundStyle(.backgroundLightBlue.opacity(0.5))
+                                .padding(.top, 5)
+                                .padding(.horizontal)
+                        }
+                    }
+                }
         })
     }
 }
