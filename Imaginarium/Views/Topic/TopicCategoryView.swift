@@ -24,9 +24,9 @@ struct TopicCategoryView: View {
                             }
                         }
                     }label: {
-                        Image(systemName: "line.3.horizontal.decrease")
-                            .font(.title2)
-                            .foregroundColor(.white)
+                        Image(systemName: "line.3.horizontal.decrease.circle")
+                            .font(.title)
+                            .glassEffect(.clear)
                     }
 
                 }

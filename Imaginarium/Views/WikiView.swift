@@ -1,11 +1,13 @@
 import SwiftUI
 
 struct WikiView: View {
+    // MARK: - Recuperattion des données du WikiViewModel
     
-    @Environment(SharedWikiViewModel.self) var viewModel
+    @Environment(SharedWikiViewModel.self) var sharedViewModel
     
     /// Texte saisi dans la barre de recherche.
     @State private var searchText: String = ""
+    @State var categoryType: Category = .all
     
     /// Le chemin de navigation (NavigationPath) pour gérer la pile d'écrans.
     @State private var navigationPath = NavigationPath()
@@ -20,30 +22,23 @@ struct WikiView: View {
                 
                 VStack(spacing: 16) {
                     
-                    HStack {
-                        Text("Imaginarium")
-                            .font(.system(size: 28, weight: .bold))
-                            .foregroundColor(.white)
-                        
-                        Spacer()
-                        
-                        Button(action: {
-                            // Action future pour le menu ou les filtres avancés
-                        }) {
-                            Image(systemName: "line.3.horizontal.decrease")
-                                .font(.title2)
-                                .foregroundColor(.white)
-                        }
-                    }
-                    .padding(.horizontal)
-                    .padding(.top, 8)
-            
-                    SearchBarView(text: $searchText, placeholder: "Search")
-                        .padding(.horizontal)
-                    
+//                    HStack {
+//                        Text("Imaginarium")
+//                            .font(.system(size: 28, weight: .bold))
+//                            .foregroundColor(.white)
+//                        
+//                        Spacer()
+//                        CategorySelectionView()
+//                    }
+//                    .padding(.leading)
+//                    .padding(.top, 8)
+//                
+//                    SearchBarView(text: $searchText, placeholder: "Search")
+//                        .padding(.horizontal)
+                    SharedHeaderView(searchText: $searchText, title: "Imaginarium")
                     ScrollView(showsIndicators: false) {
                         LazyVStack(spacing: 18) {
-                            ForEach(viewModel.filterWikis(searchText)) { wiki in
+                            ForEach(sharedViewModel.filterWikis(searchText, selected: sharedViewModel.selectedCategory)) { wiki in
                                 Button(action: {
                                     // Ajout de l'élément au chemin pour naviguer vers le détail
                                     navigationPath.append(wiki)
@@ -58,6 +53,7 @@ struct WikiView: View {
                         .padding(.top, 4)
                         .padding(.bottom, 80)
                     }
+                    .padding(.horizontal)
                 }
             }
             // Déclaration de la destination de navigation liée au type Wiki

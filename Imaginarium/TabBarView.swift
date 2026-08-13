@@ -30,6 +30,7 @@ struct TabBarView: View {
         }
         .environment(sharedViewModel)
         .accentColor(.white)
+        .colorScheme(.dark)
     }
 }
 

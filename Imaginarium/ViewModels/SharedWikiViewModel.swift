@@ -13,12 +13,12 @@ class SharedWikiViewModel{
     // Copie du tableau de données de MockData.wikis et accessibilité pour les silos Wiki, MapView et Profil
     var wikis: [Wiki] = MockData.wikis
     
-    // ajouter func filtre
-    func filterWikis(_ searchText: String) -> [Wiki] {
+    // Here I filter by the string in the search bar; on a list that is already filtered based on category
+    func filterWikis(_ searchText: String, selected: Category) -> [Wiki] {
         if searchText.isEmpty {
-            return wikis
+            return filterByCategory(selected: selectedCategory)
         } else {
-            return wikis.filter { wiki in
+            return filterByCategory(selected: selectedCategory).filter { wiki in
                 wiki.title.localizedCaseInsensitiveContains(searchText) ||
                 wiki.subtitle.localizedCaseInsensitiveContains(searchText) ||
                 wiki.tags.contains(where: { $0.localizedCaseInsensitiveContains(searchText) })
@@ -29,4 +29,16 @@ class SharedWikiViewModel{
     func addWiki(wiki: Wiki) {
         wikis.append(wiki)
     }
+    // This value is stocked in the view Model and changed and passed on as needed in the different views
+    var selectedCategory: Category = .all
+
+    // Here we filter the wikis based on category before passing them to the search filter
+    func filterByCategory(selected: Category) -> [Wiki] {
+        if selected == .all {
+                return wikis
+            } else {
+                return wikis.filter { wiki in
+                    wiki.category == selected }
+            }
+        }
 }
