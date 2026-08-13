@@ -20,6 +20,7 @@ struct TopicHubView: View {
         NavigationStack(path: $path) {
             ZStack(alignment: .bottomTrailing) {
                 BackgroundGradient()
+                
                 TopicCategoryView(path: $path)
                 
                 TopicCreationButtonView(path: $path)

@@ -8,31 +8,9 @@ struct TopicCategoryView: View {
     var body: some View {
         VStack {
             ScrollView {
-                HStack {
-                    ComponentTitle(title: "Communauté")
-                    Spacer()
-                    Menu{
-                        ForEach(TopicCategory.allCases, id: \.self) { topicClicked in
-                            Button{
-                                if topicVM.isCategorySelected == topicClicked {
-                                    topicVM.isCategorySelected = nil
-                                } else {
-                                    topicVM.isCategorySelected = topicClicked
-                                }
-                            }label: {
-                                Text(topicClicked.rawValue)
-                            }
-                        }
-                    }label: {
-                        Image(systemName: "line.3.horizontal.decrease.circle")
-                            .font(.title)
-                            .glassEffect(.clear)
-                    }
-
-                }
-                .padding()
-                SearchBarView(text: $searchText)
-                    .padding(.horizontal)
+                
+                HeaderTopicView(searchText: $searchText)
+                    .padding(.bottom)
                 
                 ForEach(topicVM.displayedCategories, id: \.self) {
                     topicFiltered in
@@ -57,6 +35,7 @@ struct TopicCategoryView: View {
                             .padding(.horizontal)
                     }
                 }
+                .padding(.horizontal)
             }
             
         }
