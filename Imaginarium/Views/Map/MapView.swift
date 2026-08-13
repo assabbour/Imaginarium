@@ -20,7 +20,10 @@ struct MapView: View {
     var body: some View {
         NavigationStack() {
             ZStack {
+//                Map(initialPosition: .region(MKCoordinateRegion(center: regions.coordonneeGPS, span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05))))
+                
                 Map(position: .constant(.automatic)) {
+                    
                     ForEach(sharedViewModel.filterWikis(searchText, selected: sharedViewModel.selectedCategory)) { item in
                             Annotation(item.title, coordinate: item.location.coordinate, anchor: .center) {
                                 Button {
@@ -31,9 +34,9 @@ struct MapView: View {
                                 }
                             }
                             .annotationTitles(.hidden)
-                        
                     }
                 }
+                
 //                .colorScheme(.dark)
                 VStack {
                     SharedHeaderView(searchText: $searchText, title: "Imaginarium")
