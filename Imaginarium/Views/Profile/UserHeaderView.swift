@@ -45,10 +45,12 @@ struct UserHeaderView: View {
                 }
                 
                 Spacer()
-                Button(action: onEditTapped) {
+                Button(action: onEditTapped) { // ajouter le path vers WikiCreationFormView
                     HStack(spacing: 5) {
-                        Text("Edit")
-                        Image(systemName: "pencil")
+                        Image(systemName: "plus")
+                                .font(.system(size: 18, weight: .bold))
+                                .padding(10)
+                                .clipShape(Circle())
                     }
                     .font(.subheadline)
                     .fontWeight(.medium)

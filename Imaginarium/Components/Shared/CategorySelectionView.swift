@@ -9,7 +9,7 @@ import SwiftUI
 
 
 struct CategorySelectionView: View {
-
+    
     @Environment(SharedWikiViewModel.self) var sharedViewModel
     var body: some View {
         Menu{

@@ -13,10 +13,11 @@ struct TopicDetailedAddComment: View {
     @State var userComment : String = ""
     var body: some View {
         HStack(alignment: .center) {
-            TextField("Ajouter un commentaire ?", text: $userComment)
+            TextField("Ajouter un commentaire", text: $userComment)
                 .multilineTextAlignment(.leading)
                 .padding(4)
                 .background(.white)
+                .foregroundStyle(.black)
                 .clipShape(RoundedRectangle(cornerRadius: 8))
             Button {
                 topicVM.addComment(userComment, topic: topic)
