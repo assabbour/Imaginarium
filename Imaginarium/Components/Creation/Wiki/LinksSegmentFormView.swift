@@ -26,23 +26,34 @@ struct LinksSegmentFormView: View {
     var body: some View {
         @Bindable var viewModel = wikiCreationViewModel
         
-        ZStack {
+        VStack {
             
-            Form {
-                Section(header:Text("Rechercher un wiki").foregroundStyle(.white)) {
-                    SearchBarView(text: $searchText, placeholder: "Nom du wiki")
-                    
-                    ForEach(filteredWikis) { wiki in
-                        Button {
-                            wikiCreationViewModel.addLink(to: wiki)
-                            searchText = ""
-                        } label: {
-                            Text(wiki.title)
-                        }
+            Text("Autres liens")
+                .font(.title.bold())
+                .foregroundStyle(.white)
+            RowDividerTopic()
+            
+            Group {
+                Text("Rechercher un wiki")
+                    .foregroundStyle(.white)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                SearchBarView(text: $searchText, placeholder: "Nom du wiki")
+                
+                ForEach(filteredWikis) { wiki in
+                    Button {
+                        wikiCreationViewModel.addLink(to: wiki)
+                        searchText = ""
+                        //Nav vers le wiki
+                    } label: {
+                        Text(wiki.title)
                     }
                 }
                 
-                Section(header:Text("Liens ajoutés").foregroundStyle(.white)) {
+                Group {
+                    Text("Wiki(s) selectionné(s)")
+                    .foregroundStyle(.white)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    
                     ForEach(viewModel.wiki.linksSegment?.links ?? []) { link in
                         Text(link.linkedTitle)
                     }
@@ -51,8 +62,11 @@ struct LinksSegmentFormView: View {
                     }
                 }
             }
-            .scrollContentBackground(.hidden)
+//            .padding()
         }
+        .padding()
+        .background(Color.black.opacity(0.15))
+        .cornerRadius(8)
     }
 }
 
