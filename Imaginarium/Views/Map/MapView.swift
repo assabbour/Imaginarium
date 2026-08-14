@@ -16,7 +16,7 @@ struct MapView: View {
     @State private var searchText: String = ""
     @State var isSheetPresented: Bool = false
     @State var isSheetPresentedDetail: Bool = false
-    @State var passWikiToSheet: Wiki = MockData.wikis[0] // default data, we never see it
+    @State var passWikiToSheet: Wiki = MockData.wikis[.random(in: 1...10)] // default data, we never see it
     var body: some View {
         NavigationStack() {
             ZStack {
