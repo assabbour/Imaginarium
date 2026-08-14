@@ -13,7 +13,7 @@ struct TopicDetailedAddComment: View {
     @State var userComment : String = ""
     var body: some View {
         HStack(alignment: .center) {
-            TextField("", text: $userComment, prompt: Text("Ajouter un commentaire ?").foregroundColor(.gray))
+            TextField("Ajouter un commentaire", text: $userComment)
                 .multilineTextAlignment(.leading)
                 .padding(4)
                 .background(.white)
