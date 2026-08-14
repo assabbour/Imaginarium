@@ -30,22 +30,22 @@ struct MapSheetView: View {
                     .padding()
             }
             ScrollView(.horizontal) {
-                    HStack {
-                        ForEach(wiki.gallerySegment?.gallery ?? [], id:\.self) { image in
-                            AsyncImage(url: wiki.imageName) { image in
-                                image.resizable()
-                            }
-                            placeholder: {
-                                Image(systemName: "photo")
-                            }
-                            .scaledToFill()
-                            .frame(maxWidth: .infinity, maxHeight: 180)
-                            .clipped()
-                            .clipShape(UnevenRoundedRectangle(topLeadingRadius: 0.0,bottomLeadingRadius: 25.0, bottomTrailingRadius: 0.0, topTrailingRadius: 25.0))
-                            .allowsHitTesting(false)
+                HStack {
+                    ForEach(wiki.gallerySegment?.gallery ?? [], id:\.self) { image in
+                        AsyncImage(url: wiki.imageName) { image in
+                            image.resizable()
                         }
+                        placeholder: {
+                            Image(systemName: "photo")
+                        }
+                        .scaledToFill()
+                        .frame(maxWidth: .infinity, maxHeight: 180)
+                        .clipped()
+                        .clipShape(UnevenRoundedRectangle(topLeadingRadius: 0.0,bottomLeadingRadius: 25.0, bottomTrailingRadius: 0.0, topTrailingRadius: 25.0))
+                        .allowsHitTesting(false)
                     }
-                    .padding(.horizontal)
+                }
+                .padding(.horizontal)
             }
             .scrollIndicators(.hidden)
             ScrollView {
