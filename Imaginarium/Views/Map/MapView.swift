@@ -17,18 +17,6 @@ struct MapView: View {
     @State var isSheetPresented: Bool = false
     @State var isSheetPresentedDetail: Bool = false
     @State var passWikiToSheet: Wiki = MockData.wikis[0] // default data, we never see it
-    @State var itemPosition: MapCameraPosition? = nil
-    /*
-     func mapCameraPosition() {
-     if isSheetPresented {
-     .constant(.region(MKCoordinateRegion(center: itemPosition, span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05))))
-     
-     } else {
-     .constant(.automatic)}
-     }
-     
-     Map(initialPosition: .region(MKCoordinateRegion(center: regions.coordonneeGPS, span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05))))
-     */
     var body: some View {
         NavigationStack() {
             ZStack {
@@ -54,10 +42,6 @@ struct MapView: View {
                             showsTraffic: true
                         )
                     )
-                //                .onChange(of: isSheetPresented) {
-                //                    MapCamera(centerCoordinate: itemPosition ?? .Marseille, distance: 1)
-                //                }
-                
                 VStack {
                     SharedHeaderView(searchText: $searchText, title: "Imaginarium")
                     Spacer()
@@ -95,9 +79,32 @@ struct MapView: View {
         .environment(SharedWikiViewModel())
 }
 
-extension CLLocationCoordinate2D {
-    static let Marseille: Self = .init(
-        latitude: 43.2969,
-        longitude: 5.3810
-    )
-}
+
+/*
+ 
+ Code to implement later for closer control over map coordinates
+ 
+ extension CLLocationCoordinate2D {
+ static let Marseille: Self = .init(
+ latitude: 43.2969,
+ longitude: 5.3810
+ )
+ }
+ 
+ @State var itemPosition: MapCameraPosition? = nil
+ 
+ func mapCameraPosition() {
+ if isSheetPresented {
+ .constant(.region(MKCoordinateRegion(center: itemPosition, span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05))))
+ 
+ } else {
+ .constant(.automatic)}
+ }
+ 
+ Map(initialPosition: .region(MKCoordinateRegion(center: regions.coordonneeGPS, span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05))))
+ 
+ .onChange(of: isSheetPresented) {
+ MapCamera(centerCoordinate: itemPosition ?? .Marseille, distance: 1)
+ }
+ 
+ */

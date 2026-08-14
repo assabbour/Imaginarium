@@ -21,14 +21,14 @@ struct MapAnnotationView: View {
                 .offset(x:0, y:50)
             AsyncImage(url: wiki.imageName) { image in
                 image.resizable()
-                } placeholder: {
-                    Image(systemName: "photo")
-                }
-                    .scaledToFill()
-                    .frame(width: 84, height: 84)
-                    .clipped()
-                    .cornerRadius(28)
-                }
+            } placeholder: {
+                Image(systemName: "photo")
+            }
+            .scaledToFill()
+            .frame(width: 84, height: 84)
+            .clipped()
+            .cornerRadius(28)
+        }
     }
 }
 
