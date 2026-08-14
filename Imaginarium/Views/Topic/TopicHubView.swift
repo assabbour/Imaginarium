@@ -30,7 +30,7 @@ struct TopicHubView: View {
                 case .topic(let topic):
                     TopicDetailedView(topic: topic)
                 case .create:
-                    TopicFormView()
+                    TopicFormView(path: $path)
                 }
             }
         }
