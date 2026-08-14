@@ -138,9 +138,10 @@ struct WikiCreationFormView: View {
                 }
             }
         }
+        .colorScheme(.light)
         .alert("Wiki créé avec succès !", isPresented: $showSuccessAlert) {
             Button("Retour a l'Imagipedium") {
-                //navigation vers catalogue
+                //navigation vers catalogue du WikiView
             }
         }
         .environment(wikiCreationViewModel)

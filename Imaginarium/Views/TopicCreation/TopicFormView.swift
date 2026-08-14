@@ -11,6 +11,7 @@ struct TopicFormView: View {
     
     @Environment(TopicViewModel.self) var topicVM
     @State private var showSuccessAlert = false
+    @Binding var path: [Destination]
     
     var body: some View {
         @Bindable var viewModel = topicVM
@@ -74,16 +75,20 @@ struct TopicFormView: View {
                 .cornerRadius(8)
             }
         }
+        .colorScheme(.light)
         .alert("Topic créé avec succès !", isPresented: $showSuccessAlert) {
-            Button("Retour a la communauté") {
-                //navigation vers communauté
+            Button/*("Retour a la communauté")*/ { path = []
+                }label: {
+                    Text("Retour a la communauté")
+                }
+            
             }
         }
     }
-}
 
 
-#Preview {
-    TopicFormView()
-        .environment(TopicViewModel())
-}
+
+//#Preview {
+//    TopicFormView(path: $path)
+//        .environment(TopicViewModel())
+//}
